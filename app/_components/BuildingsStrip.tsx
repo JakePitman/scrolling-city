@@ -24,12 +24,14 @@ const BUILDINGS = [
 
 type BuildingsStrip = {
   position: [number, number, number];
+  isRTL?: boolean;
 };
-export const BuildingsStrip = ({ position }: BuildingsStrip) => {
+export const BuildingsStrip = ({ position, isRTL = false }: BuildingsStrip) => {
+  const xOffset = isRTL ? -10 : 10;
   return (
     <group position={position}>
       {BUILDINGS.map((Building, i) => (
-        <group key={i} position={[i * 10, 0, 0]}>
+        <group key={i} position={[i * xOffset, 0, 0]}>
           <Building />
         </group>
       ))}
