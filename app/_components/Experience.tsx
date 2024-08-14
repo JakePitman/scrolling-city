@@ -2,7 +2,7 @@
 import { useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
-import { Cube } from "@components/Cube";
+import { BuildingsStrip } from "@components/BuildingsStrip";
 
 export const Experience = () => {
   const { gl } = useThree();
@@ -13,9 +13,11 @@ export const Experience = () => {
     <>
       <color args={["black"]} attach="background" />
       <OrbitControls />
-      <ambientLight />
+      <ambientLight intensity={100} />
 
-      <Cube />
+      {new Array(10).fill(null).map((i) => (
+        <BuildingsStrip key={i} position={[0, 0, -(i * 10)]} />
+      ))}
     </>
   );
 };
