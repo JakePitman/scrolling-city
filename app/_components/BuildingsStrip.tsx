@@ -28,9 +28,13 @@ type BuildingsStrip = {
 };
 export const BuildingsStrip = ({ position, isRTL = false }: BuildingsStrip) => {
   const xOffset = isRTL ? -10 : 10;
+  const numberOfBuildings = 15;
+  const buildingsToRender = new Array(numberOfBuildings)
+    .fill(null)
+    .map(() => BUILDINGS[Math.floor(Math.random() * BUILDINGS.length)]);
   return (
     <group position={position}>
-      {BUILDINGS.map((Building, i) => (
+      {buildingsToRender.map((Building, i) => (
         <group key={i} position={[i * xOffset, 0, 0]}>
           <Building />
         </group>

@@ -22,15 +22,17 @@ export const Experience = () => {
       <ambientLight intensity={100} />
       <Background />
 
-      <group position={[10, 0, 0]}>
-        {new Array(10).fill(null).map((item, i) => (
-          <BuildingsStrip key={i} position={[0, 0, i * 10]} />
-        ))}
-      </group>
-      <group position={[-10, 0, 0]}>
-        {new Array(10).fill(null).map((item, i) => (
-          <BuildingsStrip key={i} position={[0, 0, i * 10]} isRTL />
-        ))}
+      <group scale={0.7}>
+        <group position={[10, 0, 0]}>
+          {new Array(10).fill(null).map((item, i) => (
+            <BuildingsStrip key={i} position={[0, 0, i * 10]} />
+          ))}
+        </group>
+        <group position={[-10, 0, 0]}>
+          {new Array(10).fill(null).map((item, i) => (
+            <BuildingsStrip key={i} position={[0, 0, i * 10]} isRTL />
+          ))}
+        </group>
       </group>
     </>
   );
