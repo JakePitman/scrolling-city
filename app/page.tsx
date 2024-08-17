@@ -6,8 +6,10 @@ import {
   DepthOfField,
   Bloom,
   Noise,
+  Scanline,
   Vignette,
 } from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
 
 import { Experience } from "@components/Experience";
 
@@ -26,6 +28,8 @@ export default function Home() {
           />
           <Bloom intensity={0.01} />
           <Noise opacity={0.15} />
+          <Scanline blendFunction={BlendFunction.OVERLAY} />
+          <Vignette />
         </EffectComposer>
       </Canvas>
     </main>
