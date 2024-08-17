@@ -8,8 +8,9 @@ import {
   Noise,
   Scanline,
   Vignette,
+  Glitch,
 } from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
+import { BlendFunction, GlitchMode } from "postprocessing";
 
 import { Experience } from "@components/Experience";
 
@@ -30,6 +31,13 @@ export default function Home() {
           <Noise opacity={0.15} />
           <Scanline blendFunction={BlendFunction.OVERLAY} />
           <Vignette />
+          <Glitch
+            delay={[7, 12]}
+            duration={[0.01, 0.02]}
+            strength={[0.1, 0.2]}
+            mode={GlitchMode.SPORADIC}
+            active
+          />
         </EffectComposer>
       </Canvas>
     </main>

@@ -45,16 +45,19 @@ export const BuildingsStrip = ({
   });
   const xOffset = isRTL ? -10 : 10;
   const numberOfBuildings = 20;
+  const numberOfBuildingsPerBlock = 5;
   const buildingsToRender = new Array(numberOfBuildings)
     .fill(null)
     .map(() => BUILDINGS[Math.floor(Math.random() * BUILDINGS.length)]);
   return (
     <group position={initialPosition} ref={ref}>
-      {buildingsToRender.map((Building, i) => (
-        <group key={i} position={[i * xOffset, 0, 0]}>
-          <Building />
-        </group>
-      ))}
+      {buildingsToRender.map((Building, i) =>
+        i > 0 && i % numberOfBuildingsPerBlock === 0 ? null : (
+          <group key={i} position={[i * xOffset, 0, 0]}>
+            <Building />
+          </group>
+        )
+      )}
     </group>
   );
 };

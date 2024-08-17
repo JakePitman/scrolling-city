@@ -15,6 +15,7 @@ export const Experience = () => {
     rotation: [0, Math.PI, 0],
   });
   const numberOfBuildingRows = 40;
+  const numberOfBuildingsPerBlock = 5;
 
   return (
     <>
@@ -24,15 +25,29 @@ export const Experience = () => {
       <Background />
 
       <group scale={0.5} position={[0, 0, 100]}>
-        <group position={[10, 0, 0]}>
-          {new Array(numberOfBuildingRows).fill(null).map((item, i) => (
-            <BuildingsStrip key={i} initialPosition={[0, 0, i * -10]} />
-          ))}
-        </group>
+        {/* Left side */}
         <group position={[-10, 0, 0]}>
-          {new Array(numberOfBuildingRows).fill(null).map((item, i) => (
-            <BuildingsStrip key={i} initialPosition={[0, 0, i * -10]} isRTL />
-          ))}
+          {new Array(numberOfBuildingRows)
+            .fill(null)
+            .map((item, i) =>
+              i > 0 && i % numberOfBuildingsPerBlock === 0 ? null : (
+                <BuildingsStrip
+                  key={i}
+                  initialPosition={[0, 0, i * -10]}
+                  isRTL
+                />
+              )
+            )}
+        </group>
+        {/* Right side */}
+        <group position={[10, 0, 0]}>
+          {new Array(numberOfBuildingRows)
+            .fill(null)
+            .map((item, i) =>
+              i > 0 && i % numberOfBuildingsPerBlock === 0 ? null : (
+                <BuildingsStrip key={i} initialPosition={[0, 0, i * -10]} />
+              )
+            )}
         </group>
       </group>
     </>
