@@ -58,6 +58,9 @@ type GLTFResult = GLTF & {
 const concreteMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 });
 const litGlassMaterial = new THREE.MeshStandardMaterial({
   color: "white",
+  emissive: "red",
+  emissiveIntensity: 2,
+  toneMapped: false,
 });
 const pavementMaterial = new THREE.MeshStandardMaterial({ color: "black" });
 
