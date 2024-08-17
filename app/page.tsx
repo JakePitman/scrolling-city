@@ -32,8 +32,12 @@ export default function Home() {
           <Scanline blendFunction={BlendFunction.OVERLAY} />
           <Vignette />
           <Glitch
+            // These are correct
+            // @ts-ignore
             delay={[7, 12]}
+            // @ts-ignore
             duration={[0.01, 0.02]}
+            // @ts-ignore
             strength={[0.1, 0.2]}
             mode={GlitchMode.SPORADIC}
             active
