@@ -14,7 +14,7 @@ export const Experience = () => {
   const { rotation } = useControls({
     rotation: [0, Math.PI, 0],
   });
-  const numberOfBuildingRows = 20;
+  const numberOfBuildingRows = 40;
 
   return (
     <>
@@ -23,15 +23,15 @@ export const Experience = () => {
       <ambientLight intensity={100} />
       <Background />
 
-      <group scale={0.7} position={[0, 0, 100]}>
+      <group scale={0.5} position={[0, 0, 100]}>
         <group position={[10, 0, 0]}>
           {new Array(numberOfBuildingRows).fill(null).map((item, i) => (
-            <BuildingsStrip key={i} position={[0, 0, i * -10]} />
+            <BuildingsStrip key={i} initialPosition={[0, 0, i * -10]} />
           ))}
         </group>
         <group position={[-10, 0, 0]}>
           {new Array(numberOfBuildingRows).fill(null).map((item, i) => (
-            <BuildingsStrip key={i} position={[0, 0, i * -10]} isRTL />
+            <BuildingsStrip key={i} initialPosition={[0, 0, i * -10]} isRTL />
           ))}
         </group>
       </group>
