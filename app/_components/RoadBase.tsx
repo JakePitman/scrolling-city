@@ -2,7 +2,8 @@ import * as THREE from "three";
 
 const geometry = new THREE.PlaneGeometry(200, 200, 1, 1);
 const material = new THREE.MeshStandardMaterial({ color: "black" });
-export const Road = () => {
+
+export const RoadBase = () => {
   return (
     <mesh
       geometry={geometry}
