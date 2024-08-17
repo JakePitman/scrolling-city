@@ -62,7 +62,7 @@ const litGlassMaterial = new THREE.MeshStandardMaterial({
   emissiveIntensity: 2,
   toneMapped: false,
 });
-const pavementMaterial = new THREE.MeshStandardMaterial({ color: "black" });
+const pavementMaterial = new THREE.MeshStandardMaterial({ color: "#080808" });
 
 type BuildingProps = {};
 export const Building1a = ({}: BuildingProps) => {
