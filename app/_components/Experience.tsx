@@ -5,6 +5,7 @@ import { OrbitControls } from "@react-three/drei";
 import { BuildingsStrip } from "@components/BuildingsStrip";
 import { Background } from "@components/Background";
 import { RoadBase } from "@components/RoadBase";
+import { Road } from "@components/Road";
 
 export const Experience = () => {
   const { gl } = useThree();
@@ -21,6 +22,7 @@ export const Experience = () => {
       <ambientLight intensity={100} />
       <Background />
 
+      <Road position={[0, 0, 0]} />
       <RoadBase />
       <group scale={0.5} position={[0, 0, 100]}>
         {/* Left side */}
