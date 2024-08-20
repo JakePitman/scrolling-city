@@ -24,6 +24,10 @@ export const Experience = () => {
       <Background />
 
       <Road position={[0, 0, 0]} />
+      <Road position={[30, 0, 0]} />
+      <Road position={[-30, 0, 0]} />
+      <Road position={[55, 0, 0]} />
+      <Road position={[-55, 0, 0]} />
       <RoadBase />
       <group scale={0.5} position={[0, 0, 100]}>
         {/* Left side */}
