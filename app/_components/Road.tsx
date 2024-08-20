@@ -6,7 +6,14 @@ type Props = {
 export const Road = ({ position }: Props) => {
   return (
     <group position={position}>
-      <Car />
+      <Car direction="coming" />
+      <Car direction="coming" />
+      <Car direction="coming" />
+      <Car direction="coming" />
+      <Car direction="going" />
+      <Car direction="going" />
+      <Car direction="going" />
+      <Car direction="going" />
     </group>
   );
 };
