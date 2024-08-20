@@ -62,6 +62,9 @@ const litGlassMaterial = new THREE.MeshStandardMaterial({
   emissiveIntensity: 2,
   toneMapped: false,
 });
+const normalGlassMaterial = new THREE.MeshStandardMaterial({
+  color: "#000105",
+});
 const pavementMaterial = new THREE.MeshStandardMaterial({ color: "#080808" });
 
 type BuildingProps = {};
@@ -82,10 +85,7 @@ export const Building1a = ({}: BuildingProps) => {
         material={litGlassMaterial}
         castShadow
       />
-      <mesh
-        geometry={nodes["1a_2"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["1a_2"].geometry} material={normalGlassMaterial} />
       <mesh
         geometry={nodes["1a_3"].geometry}
         material={pavementMaterial}
@@ -104,10 +104,7 @@ export const Building1b = ({}: BuildingProps) => {
       <mesh geometry={nodes["1b"].geometry} material={pavementMaterial} />
       <mesh geometry={nodes["1b_1"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["1b_2"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["1b_3"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["1b_3"].geometry} material={normalGlassMaterial} />
     </group>
   );
 };
@@ -121,10 +118,7 @@ export const Building1c = ({}: BuildingProps) => {
       <mesh geometry={nodes["1c"].geometry} material={pavementMaterial} />
       <mesh geometry={nodes["1c_1"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["1c_2"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["1c_3"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["1c_3"].geometry} material={normalGlassMaterial} />
     </group>
   );
 };
@@ -138,10 +132,7 @@ export const Building2a = ({}: BuildingProps) => {
       <mesh geometry={nodes["2a"].geometry} material={pavementMaterial} />
       <mesh geometry={nodes["2a_1"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["2a_2"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["2a_3"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["2a_3"].geometry} material={normalGlassMaterial} />
     </group>
   );
 };
@@ -155,10 +146,7 @@ export const Building2b = ({}: BuildingProps) => {
       <mesh geometry={nodes["2b"].geometry} material={pavementMaterial} />
       <mesh geometry={nodes["2b_1"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["2b_2"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["2b_3"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["2b_3"].geometry} material={normalGlassMaterial} />
     </group>
   );
 };
@@ -172,10 +160,7 @@ export const Building2c = ({}: BuildingProps) => {
       <mesh geometry={nodes["2c"].geometry} material={pavementMaterial} />
       <mesh geometry={nodes["2c_1"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["2c_2"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["2c_3"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["2c_3"].geometry} material={normalGlassMaterial} />
     </group>
   );
 };
@@ -188,10 +173,7 @@ export const Building3a = ({}: BuildingProps) => {
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["3a"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["3a_1"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["3a_2"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["3a_2"].geometry} material={normalGlassMaterial} />
       <mesh geometry={nodes["3a_3"].geometry} material={pavementMaterial} />
     </group>
   );
@@ -206,10 +188,7 @@ export const Building3b = ({}: BuildingProps) => {
       <mesh geometry={nodes["3b"].geometry} material={pavementMaterial} />
       <mesh geometry={nodes["3b_1"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["3b_2"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["3b_3"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["3b_3"].geometry} material={normalGlassMaterial} />
     </group>
   );
 };
@@ -223,10 +202,7 @@ export const Building3c = ({}: BuildingProps) => {
       <mesh geometry={nodes["3c"].geometry} material={pavementMaterial} />
       <mesh geometry={nodes["3c_1"].geometry} material={concreteMaterial} />
       <mesh geometry={nodes["3c_2"].geometry} material={litGlassMaterial} />
-      <mesh
-        geometry={nodes["3c_3"].geometry}
-        material={materials.NormalGlass}
-      />
+      <mesh geometry={nodes["3c_3"].geometry} material={normalGlassMaterial} />
     </group>
   );
 };
