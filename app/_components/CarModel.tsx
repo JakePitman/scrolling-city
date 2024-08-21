@@ -23,11 +23,20 @@ type GLTFResult = GLTF & {
   };
 };
 
+const headlightMaterial = new THREE.MeshStandardMaterial({
+  color: "#f5f781",
+  toneMapped: false,
+  emissive: "#f5f781",
+  emissiveIntensity: 200,
+});
 const taillightMaterial = new THREE.MeshStandardMaterial({
   color: "red",
   toneMapped: false,
   emissive: "red",
-  emissiveIntensity: 2,
+  emissiveIntensity: 200,
+});
+const glassMaterial = new THREE.MeshStandardMaterial({
+  color: "#010b1c",
 });
 
 export function CarModel(props: JSX.IntrinsicElements["group"]) {
@@ -35,28 +44,30 @@ export function CarModel(props: JSX.IntrinsicElements["group"]) {
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Cube006.geometry} material={materials.metal} />
-      <mesh geometry={nodes.Cube006_1.geometry} material={materials.glass} />
+      <mesh geometry={nodes.Cube006_1.geometry} material={glassMaterial} />
       <mesh
         geometry={nodes.Cube006_2.geometry}
         material={materials.headlights}
       />
-      <mesh material={taillightMaterial} position={[0.5, 0.5, 1.5]}>
+      <mesh position={[0.5, 0.5, 1.5]} material={taillightMaterial}>
         <planeGeometry args={[0.4, 0.3]} />
-        <meshStandardMaterial
-          color="red"
-          emissive="red"
-          emissiveIntensity={2}
-          toneMapped={false}
-        />
       </mesh>
-      <mesh material={taillightMaterial} position={[-0.5, 0.5, 1.5]}>
+      <mesh position={[-0.5, 0.5, 1.5]} material={taillightMaterial}>
         <planeGeometry args={[0.4, 0.3]} />
-        <meshStandardMaterial
-          color="red"
-          emissive="red"
-          emissiveIntensity={2}
-          toneMapped={false}
-        />
+      </mesh>
+      <mesh
+        position={[0.5, 0.5, -2.4]}
+        rotation={[0, Math.PI, 0]}
+        material={headlightMaterial}
+      >
+        <planeGeometry args={[0.4, 0.3]} />
+      </mesh>
+      <mesh
+        position={[-0.5, 0.5, -2.4]}
+        rotation={[0, Math.PI, 0]}
+        material={headlightMaterial}
+      >
+        <planeGeometry args={[0.4, 0.3]} />
       </mesh>
     </group>
   );
