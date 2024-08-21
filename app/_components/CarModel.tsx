@@ -38,6 +38,7 @@ const taillightMaterial = new THREE.MeshStandardMaterial({
 const glassMaterial = new THREE.MeshStandardMaterial({
   color: "#010b1c",
 });
+const lightGeometry = new THREE.PlaneGeometry(0.4, 0.3);
 
 export function CarModel(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/models/car/car.glb") as GLTFResult;
@@ -46,29 +47,27 @@ export function CarModel(props: JSX.IntrinsicElements["group"]) {
       <mesh geometry={nodes.Cube006.geometry} material={materials.metal} />
       <mesh geometry={nodes.Cube006_1.geometry} material={glassMaterial} />
       <mesh
-        geometry={nodes.Cube006_2.geometry}
-        material={materials.headlights}
+        position={[0.5, 0.5, 1.5]}
+        material={taillightMaterial}
+        geometry={lightGeometry}
       />
-      <mesh position={[0.5, 0.5, 1.5]} material={taillightMaterial}>
-        <planeGeometry args={[0.4, 0.3]} />
-      </mesh>
-      <mesh position={[-0.5, 0.5, 1.5]} material={taillightMaterial}>
-        <planeGeometry args={[0.4, 0.3]} />
-      </mesh>
+      <mesh
+        position={[-0.5, 0.5, 1.5]}
+        material={taillightMaterial}
+        geometry={lightGeometry}
+      />
       <mesh
         position={[0.5, 0.5, -2.4]}
         rotation={[0, Math.PI, 0]}
         material={headlightMaterial}
-      >
-        <planeGeometry args={[0.4, 0.3]} />
-      </mesh>
+        geometry={lightGeometry}
+      />
       <mesh
         position={[-0.5, 0.5, -2.4]}
         rotation={[0, Math.PI, 0]}
         material={headlightMaterial}
-      >
-        <planeGeometry args={[0.4, 0.3]} />
-      </mesh>
+        geometry={lightGeometry}
+      />
     </group>
   );
 }
