@@ -26,6 +26,8 @@ const BUILDINGS = [
   Building3c,
 ];
 
+const numberOfBuildings = 35;
+const numberOfBuildingsPerBlock = 5;
 type BuildingsStrip = {
   initialPosition: [number, number, number];
   isRTL?: boolean;
@@ -44,8 +46,6 @@ export const BuildingsStrip = ({
     }
   });
   const xOffset = isRTL ? -10 : 10;
-  const numberOfBuildings = 20;
-  const numberOfBuildingsPerBlock = 5;
   const buildingsToRender = new Array(numberOfBuildings)
     .fill(null)
     .map(() => BUILDINGS[Math.floor(Math.random() * BUILDINGS.length)]);

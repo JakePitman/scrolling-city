@@ -1,13 +1,14 @@
 import { useRef } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
+import { CarModel } from "@components/CarModel";
 
 const boundary = 200;
 type Props = {
   direction: "coming" | "going";
 };
 export const Car = ({ direction }: Props) => {
-  const ref = useRef<THREE.Mesh>(null);
+  const ref = useRef<THREE.Group>(null);
   const increment = direction === "coming" ? 1.5 : -1.5;
   useFrame(() => {
     if (ref.current) {
@@ -26,15 +27,16 @@ export const Car = ({ direction }: Props) => {
     Math.random() * (boundary - -boundary) + -boundary
   );
 
+  const yRotation = direction === "coming" ? Math.PI : 0;
+
   return (
-    <mesh ref={ref} position={[xOffset, 0, zStartingPosition]}>
-      <boxGeometry args={[0.5, 0.5, 1]} />
-      <meshStandardMaterial
-        color="red"
-        emissive="red"
-        emissiveIntensity={2}
-        toneMapped={false}
-      />
-    </mesh>
+    <group
+      ref={ref}
+      position={[xOffset, 0, zStartingPosition]}
+      rotation={[0, yRotation, 0]}
+      scale={0.3}
+    >
+      <CarModel />
+    </group>
   );
 };

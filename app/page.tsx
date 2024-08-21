@@ -7,7 +7,7 @@ import { PostProcessing } from "@components/PostProcessing";
 export default function Home() {
   return (
     <main className="w-[100vw] h-[100vh]">
-      <Canvas shadows camera={{ position: [0, 17, 90] }}>
+      <Canvas shadows camera={{ position: [0, 17, 100] }}>
         <Experience />
         <BakeShadows />
         <PostProcessing />
