@@ -10,6 +10,14 @@ export const Road = ({ position }: Props) => {
       <Car direction="coming" />
       <Car direction="coming" />
       <Car direction="coming" />
+      <Car direction="coming" />
+      <Car direction="coming" />
+      <Car direction="coming" />
+      <Car direction="coming" />
+      <Car direction="going" />
+      <Car direction="going" />
+      <Car direction="going" />
+      <Car direction="going" />
       <Car direction="going" />
       <Car direction="going" />
       <Car direction="going" />
