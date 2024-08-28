@@ -38,23 +38,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    children: (
-      <>
-        <Firework type="BALL" rgb={[0, 0, 0]} />
-        <Firework type="RING" rgb={[255, 20, 20]} />
-      </>
-    ),
+    fireworkElements: [
+      <Firework type="BALL" rgb={[0, 0, 0]} key={1} />,
+      <Firework type="RING" rgb={[255, 20, 20]} key={2} />,
+    ],
   },
 };
 
 export const WithPostProcessing: Story = {
   args: {
-    children: (
-      <>
-        <Firework type="BALL" rgb={[30, 30, 255]} />
-        <Firework type="RING" rgb={[235, 52, 195]} />
-      </>
-    ),
+    fireworkElements: [
+      <Firework type="BALL" rgb={[30, 30, 255]} key={1} />,
+      <Firework type="RING" rgb={[235, 52, 195]} key={2} />,
+    ],
   },
 
   decorators: (Story) => (

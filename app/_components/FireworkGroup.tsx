@@ -1,4 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
+type AnimationWrapperProps = {
+  children: React.ReactNode;
+};
+const AnimationWrapper = ({ children }: AnimationWrapperProps) => {
+  return <group>{children}</group>;
+};
 
 enum AnimationStage {
   DORMANT = "DORMANT",
@@ -7,9 +14,9 @@ enum AnimationStage {
 }
 
 type Props = {
-  children: React.ReactNode;
+  fireworkElements: React.ReactNode[];
 };
-export const FireworkGroup = ({ children }: Props) => {
+export const FireworkGroup = ({ fireworkElements }: Props) => {
   const [animationStage, setAnimationStage] = useState<AnimationStage>(
     AnimationStage.DORMANT
   );
@@ -33,5 +40,11 @@ export const FireworkGroup = ({ children }: Props) => {
     return () => clearInterval(interval);
   }, []);
 
-  return <group>{children}</group>;
+  return (
+    <group>
+      {fireworkElements.map((child, i) => (
+        <AnimationWrapper key={i}>{child}</AnimationWrapper>
+      ))}
+    </group>
+  );
 };
