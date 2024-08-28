@@ -3,12 +3,13 @@ import { RingFirework } from "@components/RingFirework";
 
 type Props = {
   type: "BALL" | "RING";
+  rgb: [number, number, number];
 };
-export const Firework = ({ type }: Props) => {
+export const Firework = ({ type, rgb }: Props) => {
   if (type === "BALL") {
-    return <BallFirework />;
+    return <BallFirework rgb={rgb} />;
   }
   if (type === "RING") {
-    return <RingFirework />;
+    return <RingFirework rgb={rgb} />;
   }
 };

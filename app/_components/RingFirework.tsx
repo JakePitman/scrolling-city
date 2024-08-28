@@ -3,7 +3,10 @@ import { PointMaterial } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-export const RingFirework = () => {
+type Props = {
+  rgb: [number, number, number];
+};
+export const RingFirework = ({ rgb }: Props) => {
   const ref1 = useRef<THREE.PointsMaterial>(null);
   const ref2 = useRef<THREE.PointsMaterial>(null);
 
@@ -21,10 +24,9 @@ export const RingFirework = () => {
     }
   });
 
-  const baseColor = [74, 144, 255];
-  const color1 = `rgba(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]})`;
-  const color2 = `rgba(${Math.min(baseColor[0] + 30, 255)}, ${Math.min(baseColor[1] + 30, 255)}, ${Math.min(baseColor[2] + 30, 255)})`;
-  const color3 = `rgba(${Math.max(0, baseColor[0] - 30)}, ${Math.max(0, baseColor[1] - 30)}, ${Math.max(0, baseColor[2] - 30)})`;
+  const [red, green, blue] = rgb;
+  const color1 = `rgba(${red}, ${green}, ${blue})`;
+  const color2 = `rgba(${Math.min(red + 30, 255)}, ${Math.min(green + 30, 255)}, ${Math.min(blue + 30, 255)})`;
 
   return (
     <group scale={5}>

@@ -22,6 +22,7 @@ const meta = {
   },
   args: {
     type: "BALL",
+    rgb: [74, 144, 255],
   },
   decorators: [
     (Story) => (
@@ -42,7 +43,7 @@ export const Basic: Story = {};
 
 export const WithPostProcessing: Story = {
   args: {
-    type: "RING"
+    type: "RING",
   },
 
   decorators: (Story) => (
@@ -50,5 +51,5 @@ export const WithPostProcessing: Story = {
       <PostProcessing />
       <Story />
     </>
-  )
+  ),
 };
