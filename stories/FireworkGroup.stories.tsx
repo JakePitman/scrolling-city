@@ -26,7 +26,10 @@ const meta = {
       <div className="w-[100vw] h-[100vh] border-solid border-2">
         <Canvas camera={{ position: [0, 0, 40] }}>
           <OrbitControls />
-          <Story />
+          <PostProcessing />
+          <group position={[0, -10, 0]}>
+            <Story />
+          </group>
         </Canvas>
       </div>
     ),
@@ -36,27 +39,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const BallRing: Story = {
   args: {
     fireworkElements: [
-      <Firework type="BALL" rgb={[0, 0, 0]} key={1} />,
-      <Firework type="RING" rgb={[255, 20, 20]} key={2} />,
+      <Firework type="BALL" rgb={[30, 30, 255]} key={1} scale={1.3} />,
+      <Firework
+        type="RING"
+        rgb={[235, 52, 195]}
+        key={2}
+        rotation={[Math.PI * 0.4, Math.PI * 0.2, 0]}
+      />,
     ],
   },
-};
-
-export const WithPostProcessing: Story = {
-  args: {
-    fireworkElements: [
-      <Firework type="BALL" rgb={[30, 30, 255]} key={1} />,
-      <Firework type="RING" rgb={[235, 52, 195]} key={2} />,
-    ],
-  },
-
-  decorators: (Story) => (
-    <>
-      <PostProcessing />
-      <Story />
-    </>
-  ),
 };
