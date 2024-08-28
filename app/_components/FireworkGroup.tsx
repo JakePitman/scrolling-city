@@ -12,12 +12,14 @@ enum AnimationStage {
 type AnimationWrapperProps = {
   children: React.ReactNode;
   animationStage: AnimationStage;
+  explodeSpeed: number;
 };
 
 const easeOutCubic = (t: number) => --t * t * t + 1;
 const AnimationWrapper = ({
   children,
   animationStage,
+  explodeSpeed,
 }: AnimationWrapperProps) => {
   const ref = useRef<THREE.Group>(null);
   useFrame((_state, delta) => {
@@ -31,7 +33,14 @@ const AnimationWrapper = ({
           ref.current.position.y += delta * 8;
           break;
         case AnimationStage.EXPLODING:
-          damp3(ref.current.scale, 1, 0.1, delta * 1, 10, easeOutCubic);
+          damp3(
+            ref.current.scale,
+            1,
+            0.1,
+            delta * explodeSpeed,
+            10,
+            easeOutCubic
+          );
           ref.current.position.y -= delta * 0.3;
           break;
         default:
@@ -73,7 +82,11 @@ export const FireworkGroup = ({ fireworkElements }: Props) => {
   return (
     <group>
       {fireworkElements.map((child, i) => (
-        <AnimationWrapper key={i} animationStage={animationStage}>
+        <AnimationWrapper
+          key={i}
+          animationStage={animationStage}
+          explodeSpeed={1 + i * 0.2}
+        >
           {child}
         </AnimationWrapper>
       ))}
