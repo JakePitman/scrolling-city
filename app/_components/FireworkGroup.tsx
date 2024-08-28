@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { damp3 } from "maath/easing";
 
 enum AnimationStage {
   DORMANT = "DORMANT",
@@ -13,24 +14,25 @@ type AnimationWrapperProps = {
   animationStage: AnimationStage;
 };
 
+const easeOutCubic = (t: number) => --t * t * t + 1;
 const AnimationWrapper = ({
   children,
   animationStage,
 }: AnimationWrapperProps) => {
   const ref = useRef<THREE.Group>(null);
-  useFrame(() => {
+  useFrame((_state, delta) => {
     if (ref.current) {
       switch (animationStage) {
         case AnimationStage.DORMANT:
           ref.current.position.set(0, 0, 0);
-          ref.current.scale.set(0, 0, 0);
+          ref.current.scale.set(0, 0.03, 0);
           break;
         case AnimationStage.RISING:
-          ref.current.position.y += 0.1;
+          ref.current.position.y += delta * 8;
           break;
         case AnimationStage.EXPLODING:
-          ref.current.scale.set(1, 1, 1);
-          ref.current.position.y -= 0.01;
+          damp3(ref.current.scale, 1, 0.1, delta * 1, 10, easeOutCubic);
+          ref.current.position.y -= delta * 0.3;
           break;
         default:
           break;
