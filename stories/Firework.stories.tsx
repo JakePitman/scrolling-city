@@ -20,7 +20,9 @@ const meta = {
       ],
     },
   },
-  args: {},
+  args: {
+    type: "BALL",
+  },
   decorators: [
     (Story) => (
       <div className="w-[100vw] h-[100vh] border-solid border-2">
@@ -36,12 +38,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
-  args: {},
-};
+export const Basic: Story = {};
 
 export const WithPostProcessing: Story = {
-  args: {},
   decorators: (Story) => (
     <>
       <PostProcessing />
