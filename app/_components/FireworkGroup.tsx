@@ -54,8 +54,12 @@ const AnimationWrapper = ({
 
 type Props = {
   fireworkElements: React.ReactNode[];
+  explosionStagger?: number;
 };
-export const FireworkGroup = ({ fireworkElements }: Props) => {
+export const FireworkGroup = ({
+  fireworkElements,
+  explosionStagger = 0.2,
+}: Props) => {
   const [animationStage, setAnimationStage] = useState<AnimationStage>(
     AnimationStage.DORMANT
   );
@@ -85,7 +89,7 @@ export const FireworkGroup = ({ fireworkElements }: Props) => {
         <AnimationWrapper
           key={i}
           animationStage={animationStage}
-          explodeSpeed={1 + i * 0.2}
+          explodeSpeed={1 + i * explosionStagger}
         >
           {child}
         </AnimationWrapper>
