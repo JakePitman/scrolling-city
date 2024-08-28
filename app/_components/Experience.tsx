@@ -32,7 +32,7 @@ export const Experience = () => {
       <group scale={0.5} position={[0, 0, 100]}>
         <group position={[0, 10, 0]}>
           {new Array(numberOfBlockRows).fill(null).map((_, i) => (
-            <BuildingBlockStrip zOffset={i * -60} />
+            <BuildingBlockStrip key={i} zOffset={i * -60} />
           ))}
         </group>
       </group>

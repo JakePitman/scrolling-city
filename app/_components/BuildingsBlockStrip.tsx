@@ -19,7 +19,7 @@ export const BuildingBlockStrip = ({ zOffset }: Props) => {
   return (
     <group position={[0, 0, zOffset]} ref={ref}>
       {new Array(numberOfRows).fill(null).map((_, i) => (
-        <group position={[0, 0, i * -10]}>
+        <group key={i} position={[0, 0, i * -10]}>
           <BuildingsStrip isRTL initialPosition={[-10, 0, 0]} />
           <BuildingsStrip initialPosition={[10, 0, 0]} />
         </group>
