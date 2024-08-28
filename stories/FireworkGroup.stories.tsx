@@ -53,3 +53,13 @@ export const BallRing: Story = {
     explosionStagger: 0.6,
   },
 };
+
+export const BallBall: Story = {
+  args: {
+    fireworkElements: [
+      <Firework type="BALL" rgb={[30, 30, 255]} key={1} scale={1.3} />,
+      <Firework type="BALL" rgb={[235, 52, 195]} key={2} />,
+    ],
+    explosionStagger: 0.8,
+  },
+};

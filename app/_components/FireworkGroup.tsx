@@ -15,7 +15,6 @@ type AnimationWrapperProps = {
   explodeSpeed: number;
 };
 
-const easeOutCubic = (t: number) => --t * t * t + 1;
 const AnimationWrapper = ({
   children,
   animationStage,
@@ -33,15 +32,7 @@ const AnimationWrapper = ({
           ref.current.position.y += delta * 8;
           break;
         case AnimationStage.EXPLODING:
-          damp3(
-            ref.current.scale,
-            1,
-            0.1 * explodeSpeed,
-            // TODO: This isn't the right place for explodeSpeed anymore
-            delta,
-            10
-            // easeOutCubic
-          );
+          damp3(ref.current.scale, 1, 0.1 * explodeSpeed, delta, 10);
           ref.current.position.y -= delta * 0.3;
           break;
         default:
