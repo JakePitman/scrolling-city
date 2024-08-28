@@ -2,12 +2,13 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Meta, StoryObj } from "@storybook/react";
 import { Firework } from "@components/Firework";
+import { FireworkGroup } from "@components/FireworkGroup";
 import { PostProcessing } from "@components/PostProcessing";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "3D/Firework",
-  component: Firework,
+  title: "3D/FireworkGroup",
+  component: FireworkGroup,
   parameters: {
     layout: "fullscreen",
     backgrounds: {
@@ -20,10 +21,7 @@ const meta = {
       ],
     },
   },
-  args: {
-    type: "BALL",
-    rgb: [74, 144, 255],
-  },
+  args: {},
   decorators: [
     (Story) => (
       <div className="w-[100vw] h-[100vh] border-solid border-2">
@@ -34,16 +32,30 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Firework>;
+} satisfies Meta<typeof FireworkGroup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {};
+export const Basic: Story = {
+  args: {
+    children: (
+      <>
+        <Firework type="BALL" rgb={[0, 0, 0]} />
+        <Firework type="RING" rgb={[255, 20, 20]} />
+      </>
+    ),
+  },
+};
 
 export const WithPostProcessing: Story = {
   args: {
-    type: "RING",
+    children: (
+      <>
+        <Firework type="BALL" rgb={[30, 30, 255]} />
+        <Firework type="RING" rgb={[235, 52, 195]} />
+      </>
+    ),
   },
 
   decorators: (Story) => (
