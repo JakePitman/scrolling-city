@@ -41,10 +41,14 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {};
 
 export const WithPostProcessing: Story = {
+  args: {
+    type: "RING"
+  },
+
   decorators: (Story) => (
     <>
       <PostProcessing />
       <Story />
     </>
-  ),
+  )
 };

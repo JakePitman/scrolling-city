@@ -29,7 +29,7 @@ export const RingFirework = () => {
   return (
     <group scale={5}>
       <points scale={0.95} position={[0.02, 0, 0]} rotation={[0, 0, 0]}>
-        <ringGeometry args={[4, 4, 25]} />
+        <ringGeometry args={[2, 2, 25]} />
         <PointMaterial
           color={color1}
           ref={ref1}
@@ -42,7 +42,7 @@ export const RingFirework = () => {
       </points>
 
       <points scale={0.95} position={[0.02, 0, 0]} rotation={[0, 0, 0.11]}>
-        <ringGeometry args={[4, 4, 25]} />
+        <ringGeometry args={[2, 2, 15]} />
         <PointMaterial
           color={color2}
           ref={ref2}
