@@ -15,17 +15,14 @@ export const BallFirework = ({ rgb }: Props) => {
     const { clock } = state;
     if (ref1.current) {
       const opacity = Math.abs(Math.sin(clock.getElapsedTime() * 10));
-      console.log(opacity);
       ref1.current.opacity = opacity;
     }
     if (ref2.current) {
       const opacity = Math.abs(Math.sin(clock.getElapsedTime() * 13));
-      console.log(opacity);
       ref2.current.opacity = opacity;
     }
     if (ref3.current) {
       const opacity = Math.abs(Math.sin(clock.getElapsedTime() * 35));
-      console.log(opacity);
       ref3.current.opacity = opacity;
     }
   });

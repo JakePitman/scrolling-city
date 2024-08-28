@@ -5,7 +5,6 @@ import { Firework } from "@components/Firework";
 import { FireworkGroup } from "@components/FireworkGroup";
 import { PostProcessing } from "@components/PostProcessing";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "3D/FireworkGroup",
   component: FireworkGroup,
