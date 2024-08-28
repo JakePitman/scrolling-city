@@ -50,5 +50,6 @@ export const BallRing: Story = {
         rotation={[Math.PI * 0.4, Math.PI * 0.2, 0]}
       />,
     ],
+    explosionStagger: 0.6,
   },
 };

@@ -36,10 +36,11 @@ const AnimationWrapper = ({
           damp3(
             ref.current.scale,
             1,
-            0.1,
-            delta * explodeSpeed,
-            10,
-            easeOutCubic
+            0.1 * explodeSpeed,
+            // TODO: This isn't the right place for explodeSpeed anymore
+            delta,
+            10
+            // easeOutCubic
           );
           ref.current.position.y -= delta * 0.3;
           break;
