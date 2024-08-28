@@ -27,22 +27,23 @@ export const Firework = () => {
     }
   });
 
-  const baseColor = [0, 98, 255];
+  const baseColor = [74, 144, 255];
   const color1 = `rgba(${baseColor[0]}, ${baseColor[1]}, ${baseColor[2]})`;
   const color2 = `rgba(${Math.min(baseColor[0] + 30, 255)}, ${Math.min(baseColor[1] + 30, 255)}, ${Math.min(baseColor[2] + 30, 255)})`;
   const color3 = `rgba(${Math.max(0, baseColor[0] - 30)}, ${Math.max(0, baseColor[1] - 30)}, ${Math.max(0, baseColor[2] - 30)})`;
 
   return (
-    <group scale={2}>
+    <group scale={5}>
       <points scale={0.95} position={[0.02, 0, 0]} rotation={[0.2, 0.3, 1.2]}>
         <sphereGeometry args={[1, 7, 7]} />
         <PointMaterial
           color={color1}
           ref={ref1}
           transparent
-          size={0.1}
+          size={0.2}
           sizeAttenuation={true}
           depthWrite={false}
+          blending={THREE.AdditiveBlending}
         />
       </points>
       <points
@@ -55,9 +56,10 @@ export const Firework = () => {
           color={color2}
           ref={ref2}
           transparent
-          size={0.13}
+          size={0.23}
           sizeAttenuation={true}
           depthWrite={false}
+          blending={THREE.AdditiveBlending}
         />
       </points>
       <points
@@ -70,9 +72,10 @@ export const Firework = () => {
           color={color3}
           ref={ref3}
           transparent
-          size={0.125}
+          size={0.225}
           sizeAttenuation={true}
           depthWrite={false}
+          blending={THREE.AdditiveBlending}
         />
       </points>
     </group>

@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Meta, StoryObj } from "@storybook/react";
 import { Firework } from "@components/Firework";
+import { PostProcessing } from "@components/PostProcessing";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -37,4 +38,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {},
+};
+
+export const WithPostProcessing: Story = {
+  args: {},
+  decorators: (Story) => (
+    <>
+      <PostProcessing />
+      <Story />
+    </>
+  ),
 };
