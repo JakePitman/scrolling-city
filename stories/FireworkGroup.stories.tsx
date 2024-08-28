@@ -24,7 +24,7 @@ const meta = {
   decorators: [
     (Story) => (
       <div className="w-[100vw] h-[100vh] border-solid border-2">
-        <Canvas camera={{ position: [0, 0, 20] }}>
+        <Canvas camera={{ position: [0, 0, 40] }}>
           <OrbitControls />
           <Story />
         </Canvas>
