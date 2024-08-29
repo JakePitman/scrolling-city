@@ -13,7 +13,7 @@ type Props = {
   xOffset?: number;
   zOffset?: number;
   risingVelocityOffset?: number;
-  scale?: number;
+  scale?: number | [number, number, number];
   rotation?: [number, number, number];
 };
 export const BallFirework = ({
