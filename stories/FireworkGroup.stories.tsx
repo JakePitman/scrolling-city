@@ -42,11 +42,26 @@ type Story = StoryObj<typeof meta>;
 export const BallRing: Story = {
   args: {
     children: [
-      <BallFirework rgb={[30, 30, 255]} key={1} />,
+      <BallFirework rgb={[30, 30, 255]} />,
       <RingFirework
         rgb={[235, 52, 195]}
-        key={2}
         rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
+      />,
+    ],
+  },
+};
+
+export const BallRingRing: Story = {
+  args: {
+    children: [
+      <BallFirework rgb={[30, 30, 255]} />,
+      <RingFirework
+        rgb={[235, 52, 195]}
+        rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
+      />,
+      <RingFirework
+        rgb={[52, 235, 195]}
+        rotation={[Math.PI * 0.5, Math.PI * 0.8, 0]}
       />,
     ],
   },
@@ -55,8 +70,8 @@ export const BallRing: Story = {
 export const BallBall: Story = {
   args: {
     children: [
-      <BallFirework rgb={[30, 30, 255]} key={1} scale={1.5} />,
-      <BallFirework rgb={[235, 52, 195]} key={2} rotation={[0, Math.PI, 0]} />,
+      <BallFirework rgb={[30, 30, 255]} scale={1.5} />,
+      <BallFirework rgb={[235, 52, 195]} rotation={[0, Math.PI, 0]} />,
     ],
   },
 };
@@ -64,10 +79,9 @@ export const BallBall: Story = {
 export const BallBallSeparate: Story = {
   args: {
     children: [
-      <BallFirework rgb={[30, 30, 255]} key={1} scale={1.7} />,
+      <BallFirework rgb={[30, 30, 255]} scale={1.7} />,
       <BallFirework
         rgb={[235, 52, 195]}
-        key={2}
         risingVelocityOffset={1.5}
         xOffset={5}
         zOffset={3}
@@ -76,7 +90,6 @@ export const BallBallSeparate: Story = {
       />,
       <BallFirework
         rgb={[12, 250, 56]}
-        key={3}
         risingVelocityOffset={1.9}
         xOffset={-5}
         zOffset={-2}
