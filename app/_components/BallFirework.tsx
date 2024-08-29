@@ -71,11 +71,11 @@ export const BallFirework = ({
         firework.current.position.y -= delta * 0.3;
         console.log(material1.current.opacity);
         if (material1.current.opacity > 0)
-          material1.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
+          material1.current.opacity -= delta * 1.5;
         if (material2.current.opacity > 0)
-          material2.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
+          material2.current.opacity -= delta * 1.5;
         if (material3.current.opacity > 0)
-          material3.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
+          material3.current.opacity -= delta * 1.5;
         break;
       default:
         break;
