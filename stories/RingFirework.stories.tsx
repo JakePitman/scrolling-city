@@ -1,13 +1,13 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Meta, StoryObj } from "@storybook/react";
-import { Firework } from "@components/Firework";
+import { RingFirework } from "@components/Fireworks";
 import { PostProcessing } from "@components/PostProcessing";
+import { FireworkAnimationContextProvider } from "@contexts/FireworkAnimationContext";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "3D/Firework",
-  component: Firework,
+  title: "3D/Fireworks/RingFirework",
+  component: RingFirework,
   parameters: {
     layout: "fullscreen",
     backgrounds: {
@@ -21,35 +21,26 @@ const meta = {
     },
   },
   args: {
-    type: "BALL",
     rgb: [74, 144, 255],
   },
   decorators: [
     (Story) => (
       <div className="w-[100vw] h-[100vh] border-solid border-2">
-        <Canvas camera={{ position: [0, 0, 20] }}>
+        <Canvas camera={{ position: [0, 0, 25] }}>
           <OrbitControls />
-          <Story />
+          <PostProcessing />
+          <group position={[0, -15, 0]}>
+            <FireworkAnimationContextProvider>
+              <Story />
+            </FireworkAnimationContextProvider>
+          </group>
         </Canvas>
       </div>
     ),
   ],
-} satisfies Meta<typeof Firework>;
+} satisfies Meta<typeof RingFirework>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {};
-
-export const WithPostProcessing: Story = {
-  args: {
-    type: "RING",
-  },
-
-  decorators: (Story) => (
-    <>
-      <PostProcessing />
-      <Story />
-    </>
-  ),
-};

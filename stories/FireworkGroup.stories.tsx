@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Meta, StoryObj } from "@storybook/react";
-import { Firework } from "@components/Firework";
+import { BallFirework, RingFirework } from "@components/Fireworks";
 import { FireworkGroup } from "@components/FireworkGroup";
 import { PostProcessing } from "@components/PostProcessing";
 
@@ -41,48 +41,48 @@ type Story = StoryObj<typeof meta>;
 
 export const BallRing: Story = {
   args: {
-    fireworkElements: [
-      <Firework type="BALL" rgb={[30, 30, 255]} key={1} scale={1.3} />,
-      <Firework
-        type="RING"
+    children: [
+      <BallFirework rgb={[30, 30, 255]} key={1} />,
+      <RingFirework
         rgb={[235, 52, 195]}
         key={2}
-        rotation={[Math.PI * 0.4, Math.PI * 0.2, 0]}
+        rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
       />,
     ],
-    explosionStagger: 0.6,
   },
 };
 
 export const BallBall: Story = {
   args: {
-    fireworkElements: [
-      <Firework type="BALL" rgb={[30, 30, 255]} key={1} scale={1.3} />,
-      <Firework type="BALL" rgb={[235, 52, 195]} key={2} />,
+    children: [
+      <BallFirework rgb={[30, 30, 255]} key={1} scale={1.5} />,
+      <BallFirework rgb={[235, 52, 195]} key={2} rotation={[0, Math.PI, 0]} />,
     ],
-    explosionStagger: 0.8,
   },
 };
 
 export const BallBallSeparate: Story = {
   args: {
-    fireworkElements: [
-      <Firework type="BALL" rgb={[30, 30, 255]} key={1} scale={2.3} />,
-      <Firework
-        type="BALL"
+    children: [
+      <BallFirework rgb={[30, 30, 255]} key={1} scale={1.7} />,
+      <BallFirework
         rgb={[235, 52, 195]}
         key={2}
+        risingVelocityOffset={1.5}
+        xOffset={5}
+        zOffset={3}
         scale={1.5}
-        position={[7, 2, 4]}
+        rotation={[0, Math.PI, 0]}
       />,
-      <Firework
-        type="BALL"
+      <BallFirework
         rgb={[12, 250, 56]}
         key={3}
-        position={[-9, 1, -3]}
-        scale={1.2}
+        risingVelocityOffset={1.9}
+        xOffset={-5}
+        zOffset={-2}
+        scale={2}
+        rotation={[0, Math.PI * 0.5, 0]}
       />,
     ],
-    explosionStagger: 0.8,
   },
 };

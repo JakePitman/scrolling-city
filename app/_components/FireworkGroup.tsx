@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
-import { damp3 } from "maath/easing";
+import React, { useEffect, useState } from "react";
+import { FireworkAnimationContextProvider } from "@contexts/FireworkAnimationContext";
 
 enum AnimationStage {
   DORMANT = "DORMANT",
@@ -15,44 +13,11 @@ type AnimationWrapperProps = {
   explodeSpeed: number;
 };
 
-const AnimationWrapper = ({
-  children,
-  animationStage,
-  explodeSpeed,
-}: AnimationWrapperProps) => {
-  const ref = useRef<THREE.Group>(null);
-  useFrame((_state, delta) => {
-    if (ref.current) {
-      switch (animationStage) {
-        case AnimationStage.DORMANT:
-          ref.current.position.set(0, 0, 0);
-          ref.current.scale.set(0, 0.03, 0);
-          break;
-        case AnimationStage.RISING:
-          ref.current.position.y += delta * 8;
-          break;
-        case AnimationStage.EXPLODING:
-          damp3(ref.current.scale, 1, 0.1 * explodeSpeed, delta, 10);
-          ref.current.position.y -= delta * 0.3;
-          break;
-        default:
-          break;
-      }
-    }
-  });
-
-  return <group ref={ref}>{children}</group>;
-};
-
 type Props = {
-  fireworkElements: React.ReactNode[];
-  explosionStagger?: number;
+  children: React.ReactNode;
 };
-export const FireworkGroup = ({
-  fireworkElements,
-  explosionStagger = 0.2,
-}: Props) => {
-  const [animationStage, setAnimationStage] = useState<AnimationStage>(
+export const FireworkGroup = ({ children }: Props) => {
+  const [_animationStage, setAnimationStage] = useState<AnimationStage>(
     AnimationStage.DORMANT
   );
   useEffect(() => {
@@ -76,16 +41,8 @@ export const FireworkGroup = ({
   }, []);
 
   return (
-    <group>
-      {fireworkElements.map((child, i) => (
-        <AnimationWrapper
-          key={i}
-          animationStage={animationStage}
-          explodeSpeed={1 + i * explosionStagger}
-        >
-          {child}
-        </AnimationWrapper>
-      ))}
-    </group>
+    <FireworkAnimationContextProvider>
+      {children}
+    </FireworkAnimationContextProvider>
   );
 };
