@@ -37,8 +37,12 @@ export const RingFirework = ({
       case AnimationStage.DORMANT:
         firework.current.position.set(xOffset, 0, zOffset);
         firework.current.scale.set(0, 0, 0);
+        material1.current.opacity = 0;
+        material2.current.opacity = 0;
         break;
       case AnimationStage.RISING:
+        material1.current.opacity = 1;
+        material2.current.opacity = 1;
         firework.current.position.y += delta * (8 + risingVelocityOffset);
         break;
       case AnimationStage.EXPLODING:
@@ -50,6 +54,14 @@ export const RingFirework = ({
         material2.current.opacity = Math.abs(
           Math.sin(clock.getElapsedTime() * 13)
         );
+        break;
+      case AnimationStage.FADING:
+        firework.current.position.y -= delta * 0.3;
+        console.log(material1.current.opacity);
+        if (material1.current.opacity > 0)
+          material1.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
+        if (material2.current.opacity > 0)
+          material2.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
         break;
       default:
         break;

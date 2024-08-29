@@ -44,9 +44,15 @@ export const BallFirework = ({
       case AnimationStage.DORMANT:
         firework.current.position.set(xOffset, 0, zOffset);
         firework.current.scale.set(0, 0, 0);
+        material1.current.opacity = 0;
+        material2.current.opacity = 0;
+        material3.current.opacity = 0;
         break;
       case AnimationStage.RISING:
         firework.current.position.y += delta * (8 + risingVelocityOffset);
+        material1.current.opacity = 1;
+        material2.current.opacity = 1;
+        material3.current.opacity = 1;
         break;
       case AnimationStage.EXPLODING:
         damp3(firework.current.scale, scale, 0.1 * explodeSpeed, delta, 10);
@@ -60,6 +66,16 @@ export const BallFirework = ({
         material3.current.opacity = Math.abs(
           Math.sin(clock.getElapsedTime() * 35)
         );
+        break;
+      case AnimationStage.FADING:
+        firework.current.position.y -= delta * 0.3;
+        console.log(material1.current.opacity);
+        if (material1.current.opacity > 0)
+          material1.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
+        if (material2.current.opacity > 0)
+          material2.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
+        if (material3.current.opacity > 0)
+          material3.current.opacity = Math.sin(clock.getElapsedTime() + 0.1);
         break;
       default:
         break;

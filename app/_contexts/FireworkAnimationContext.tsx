@@ -6,6 +6,7 @@ export enum AnimationStage {
   DORMANT = "DORMANT",
   RISING = "RISING",
   EXPLODING = "EXPLODING",
+  FADING = "FADING",
 }
 type Action = { type: "CYCLE_ANIMATION_STAGE" };
 type FireworkAnimationContext = {
@@ -30,6 +31,8 @@ const reducer = (animationStage: AnimationStage, action: Action) => {
         case AnimationStage.RISING:
           return AnimationStage.EXPLODING;
         case AnimationStage.EXPLODING:
+          return AnimationStage.FADING;
+        case AnimationStage.FADING:
           return AnimationStage.DORMANT;
         default:
           return AnimationStage.DORMANT;
