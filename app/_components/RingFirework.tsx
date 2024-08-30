@@ -43,7 +43,7 @@ export const RingFirework = ({
       case AnimationStage.RISING:
         material1.current.opacity = 1;
         material2.current.opacity = 1;
-        firework.current.position.y += delta * (8 + risingVelocityOffset);
+        firework.current.position.y += delta * (16 + risingVelocityOffset);
         break;
       case AnimationStage.EXPLODING:
         damp3(firework.current.scale, scale, 0.1 * explodeSpeed, delta, 10);
@@ -80,12 +80,12 @@ export const RingFirework = ({
       rotation={rotation}
     >
       <points scale={0.95} position={[0.02, 0, 0]} rotation={[0, 0, 0]}>
-        <ringGeometry args={[10, 10, 25]} />
+        <ringGeometry args={[30, 30, 25]} />
         <PointMaterial
           color={color1}
           ref={material1}
           transparent
-          size={0.2}
+          size={1}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -93,12 +93,12 @@ export const RingFirework = ({
       </points>
 
       <points scale={0.95} position={[0.02, 0, 0]} rotation={[0, 0, 0.11]}>
-        <ringGeometry args={[10, 10, 15]} />
+        <ringGeometry args={[30, 30, 15]} />
         <PointMaterial
           color={color2}
           ref={material2}
           transparent
-          size={0.2}
+          size={1.2}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}

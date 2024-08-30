@@ -49,7 +49,7 @@ export const BallFirework = ({
         material3.current.opacity = 0;
         break;
       case AnimationStage.RISING:
-        firework.current.position.y += delta * (8 + risingVelocityOffset);
+        firework.current.position.y += delta * (16 + risingVelocityOffset);
         material1.current.opacity = 1;
         material2.current.opacity = 1;
         material3.current.opacity = 1;
@@ -95,12 +95,12 @@ export const BallFirework = ({
       rotation={rotation}
     >
       <points scale={0.95} position={[0.02, 0, 0]} rotation={[0.2, 0.3, 1.2]}>
-        <sphereGeometry args={[7, 7, 7]} />
+        <sphereGeometry args={[21, 7, 7]} />
         <PointMaterial
           color={color1}
           ref={material1}
           transparent
-          size={0.2}
+          size={1}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -111,12 +111,12 @@ export const BallFirework = ({
         position={[0.02, 0.02, 0.02]}
         rotation={[1.2, 1.3, 1.2]}
       >
-        <sphereGeometry args={[7, 7, 7]} />
+        <sphereGeometry args={[21, 7, 7]} />
         <PointMaterial
           color={color2}
           ref={material2}
           transparent
-          size={0.23}
+          size={1.2}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -127,12 +127,12 @@ export const BallFirework = ({
         position={[-0.02, -0.02, 0.02]}
         rotation={[2.2, 1.3, 2.2]}
       >
-        <sphereGeometry args={[7, 7, 7]} />
+        <sphereGeometry args={[21, 7, 7]} />
         <PointMaterial
           color={color3}
           ref={material3}
           transparent
-          size={0.225}
+          size={1.4}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
