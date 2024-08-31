@@ -9,7 +9,8 @@ import {
 import { damp3 } from "maath/easing";
 
 type Props = {
-  rgb: [number, number, number];
+  color1: string;
+  color2: string;
   xOffset?: number;
   zOffset?: number;
   risingVelocityOffset?: number;
@@ -17,7 +18,8 @@ type Props = {
   rotation?: [number, number, number];
 };
 export const RingFirework = ({
-  rgb,
+  color1,
+  color2,
   xOffset = 0,
   zOffset = 0,
   risingVelocityOffset = 0,
@@ -67,10 +69,6 @@ export const RingFirework = ({
     }
   });
 
-  const [red, green, blue] = rgb;
-  const color1 = `rgba(${red}, ${green}, ${blue})`;
-  const color2 = `rgba(${Math.min(red + 30, 255)}, ${Math.min(green + 30, 255)}, ${Math.min(blue + 30, 255)})`;
-
   return (
     <group
       scale={1}
@@ -84,7 +82,7 @@ export const RingFirework = ({
           color={color1}
           ref={material1}
           transparent
-          size={1}
+          size={1.5}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -97,7 +95,7 @@ export const RingFirework = ({
           color={color2}
           ref={material2}
           transparent
-          size={1.2}
+          size={1.8}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}

@@ -3,8 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { BakeShadows } from "@react-three/drei";
 import { Experience } from "@components/Experience";
 import { PostProcessing } from "@components/PostProcessing";
-import { FireworkGroup } from "@components/FireworkGroup";
-import { BallFirework, RingFirework } from "@components/Fireworks";
+import { FireworksScene } from "@components/FireworksScene";
 
 export default function Home() {
   return (
@@ -14,12 +13,7 @@ export default function Home() {
         <BakeShadows />
         <PostProcessing />
 
-        <group>
-          <FireworkGroup>
-            <BallFirework rgb={[30, 30, 255]} />
-            <RingFirework rgb={[235, 52, 195]} />
-          </FireworkGroup>
-        </group>
+        <FireworksScene />
       </Canvas>
     </main>
   );

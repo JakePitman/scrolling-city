@@ -9,7 +9,9 @@ import {
 import { damp3 } from "maath/easing";
 
 type Props = {
-  rgb: [number, number, number];
+  color1: string;
+  color2: string;
+  color3: string;
   xOffset?: number;
   zOffset?: number;
   risingVelocityOffset?: number;
@@ -17,7 +19,9 @@ type Props = {
   rotation?: [number, number, number];
 };
 export const BallFirework = ({
-  rgb,
+  color1,
+  color2,
+  color3,
   xOffset = 0,
   zOffset = 0,
   risingVelocityOffset = 0,
@@ -69,7 +73,6 @@ export const BallFirework = ({
         break;
       case AnimationStage.FADING:
         firework.current.position.y -= delta * 0.3;
-        console.log(material1.current.opacity);
         if (material1.current.opacity > 0)
           material1.current.opacity -= delta * 1.5;
         if (material2.current.opacity > 0)
@@ -81,11 +84,6 @@ export const BallFirework = ({
         break;
     }
   });
-
-  const [red, green, blue] = rgb;
-  const color1 = `rgba(${red}, ${green}, ${blue})`;
-  const color2 = `rgba(${Math.min(red + 30, 255)}, ${Math.min(green + 30, 255)}, ${Math.min(blue + 30, 255)})`;
-  const color3 = `rgba(${Math.max(0, red - 30)}, ${Math.max(0, green - 30)}, ${Math.max(0, blue - 30)})`;
 
   return (
     <group
