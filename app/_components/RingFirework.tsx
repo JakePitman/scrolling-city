@@ -57,7 +57,6 @@ export const RingFirework = ({
         break;
       case AnimationStage.FADING:
         firework.current.position.y -= delta * 0.3;
-        console.log(material1.current.opacity);
         if (material1.current.opacity > 0)
           material1.current.opacity -= delta * 1.5;
         if (material2.current.opacity > 0)
