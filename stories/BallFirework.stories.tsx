@@ -21,12 +21,14 @@ const meta = {
     },
   },
   args: {
-    rgb: [74, 144, 255],
+    color1: "#104685",
+    color2: "#042e5e",
+    color3: "#020d3d",
   },
   decorators: [
     (Story) => (
       <div className="w-[100vw] h-[100vh] border-solid border-2">
-        <Canvas camera={{ position: [0, 0, 25] }}>
+        <Canvas camera={{ position: [0, 0, 135] }}>
           <OrbitControls />
           <PostProcessing />
           <group position={[0, -15, 0]}>

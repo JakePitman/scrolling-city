@@ -24,7 +24,7 @@ const meta = {
   decorators: [
     (Story) => (
       <div className="w-[100vw] h-[100vh] border-solid border-2">
-        <Canvas camera={{ position: [0, 0, 40] }}>
+        <Canvas camera={{ position: [0, 0, 135] }}>
           <OrbitControls />
           <PostProcessing />
           <group position={[0, -10, 0]}>
@@ -42,9 +42,10 @@ type Story = StoryObj<typeof meta>;
 export const BallRing: Story = {
   args: {
     children: [
-      <BallFirework rgb={[30, 30, 255]} />,
+      <BallFirework color1="#104685" color2="#042e5e" color3="#020d3d" />,
       <RingFirework
-        rgb={[235, 52, 195]}
+        color1="#630202"
+        color2="#750d0d"
         rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
       />,
     ],
@@ -54,13 +55,15 @@ export const BallRing: Story = {
 export const BallRingRing: Story = {
   args: {
     children: [
-      <BallFirework rgb={[30, 30, 255]} />,
+      <BallFirework color1="#104685" color2="#042e5e" color3="#020d3d" />,
       <RingFirework
-        rgb={[235, 52, 195]}
+        color1="#630202"
+        color2="#750d0d"
         rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
       />,
       <RingFirework
-        rgb={[52, 235, 195]}
+        color1="#630202"
+        color2="#750d0d"
         rotation={[Math.PI * 0.5, Math.PI * 0.8, 0]}
       />,
     ],
@@ -70,8 +73,18 @@ export const BallRingRing: Story = {
 export const BallBall: Story = {
   args: {
     children: [
-      <BallFirework rgb={[30, 30, 255]} scale={1.5} />,
-      <BallFirework rgb={[235, 52, 195]} rotation={[0, Math.PI, 0]} />,
+      <BallFirework
+        color1="#104685"
+        color2="#042e5e"
+        color3="#020d3d"
+        scale={1.5}
+      />,
+      <BallFirework
+        color1="#4a0108"
+        color2="#40080e"
+        color3="#290105"
+        rotation={[0, Math.PI, 0]}
+      />,
     ],
   },
 };
@@ -79,9 +92,16 @@ export const BallBall: Story = {
 export const BallBallSeparate: Story = {
   args: {
     children: [
-      <BallFirework rgb={[30, 30, 255]} scale={1.7} />,
       <BallFirework
-        rgb={[235, 52, 195]}
+        color1="#363b01"
+        color2="#383d06"
+        color3="#52590e"
+        scale={1.7}
+      />,
+      <BallFirework
+        color1="#4a0108"
+        color2="#40080e"
+        color3="#290105"
         risingVelocityOffset={1.5}
         xOffset={5}
         zOffset={3}
@@ -89,7 +109,9 @@ export const BallBallSeparate: Story = {
         rotation={[0, Math.PI, 0]}
       />,
       <BallFirework
-        rgb={[12, 250, 56]}
+        color1="#290105"
+        color2="#042b0d"
+        color3="#072b0f"
         risingVelocityOffset={1.9}
         xOffset={-5}
         zOffset={-2}
