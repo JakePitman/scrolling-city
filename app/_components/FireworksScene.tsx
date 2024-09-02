@@ -32,7 +32,7 @@ export const FireworksScene = () => {
 
   return (
     <group ref={fireworksScene}>
-      <FireworkGroup>
+      <FireworkGroup position={[-10, 0, -40]}>
         <BallFirework
           material1={FIREWORK_BLUE}
           material2={FIREWORK_LIGHT_BLUE}
@@ -42,6 +42,20 @@ export const FireworksScene = () => {
           material1={FIREWORK_RED}
           material2={FIREWORK_DARK_RED}
           rotation={[Math.PI * 0.2, Math.PI * 0.25, 0]}
+        />
+      </FireworkGroup>
+
+      <FireworkGroup position={[60, 0, -50]}>
+        <BallFirework
+          material1={FIREWORK_DARK_BLUE}
+          material2={FIREWORK_DARK_BLUE}
+          material3={FIREWORK_DARK_BLUE}
+        />
+        <BallFirework
+          material1={FIREWORK_RED}
+          material2={FIREWORK_DARK_RED}
+          material3={FIREWORK_RED}
+          scale={0.5}
         />
       </FireworkGroup>
     </group>
