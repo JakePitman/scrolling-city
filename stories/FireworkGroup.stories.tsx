@@ -4,6 +4,10 @@ import { Meta, StoryObj } from "@storybook/react";
 import { BallFirework, RingFirework } from "@components/Fireworks";
 import { FireworkGroup } from "@components/FireworkGroup";
 import { PostProcessing } from "@components/PostProcessing";
+import {
+  MaterialsContextProvider,
+  useMaterialsContext,
+} from "@contexts/materialsContext";
 
 const meta = {
   title: "3D/FireworkGroup",
@@ -25,11 +29,13 @@ const meta = {
     (Story) => (
       <div className="w-[100vw] h-[100vh] border-solid border-2">
         <Canvas camera={{ position: [0, 0, 135] }}>
-          <OrbitControls />
-          <PostProcessing />
-          <group position={[0, -10, 0]}>
-            <Story />
-          </group>
+          <MaterialsContextProvider>
+            <OrbitControls />
+            <PostProcessing />
+            <group position={[0, -10, 0]}>
+              <Story />
+            </group>
+          </MaterialsContextProvider>
         </Canvas>
       </div>
     ),
@@ -41,83 +47,132 @@ type Story = StoryObj<typeof meta>;
 
 export const BallRing: Story = {
   args: {
-    children: [
-      <BallFirework color1="#104685" color2="#042e5e" color3="#020d3d" />,
-      <RingFirework
-        color1="#630202"
-        color2="#750d0d"
-        rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
-      />,
-    ],
+    children: [],
+  },
+  render: () => {
+    const { FIREWORK_BLUE, FIREWORK_RED, FIREWORK_GREEN } =
+      useMaterialsContext();
+
+    return (
+      <FireworkGroup>
+        <BallFirework
+          material1={FIREWORK_BLUE}
+          material2={FIREWORK_BLUE}
+          material3={FIREWORK_BLUE}
+        />
+        <RingFirework
+          material1={FIREWORK_RED}
+          material2={FIREWORK_RED}
+          xOffset={5}
+          zOffset={3}
+          risingVelocityOffset={1.5}
+          scale={1.5}
+          rotation={[0, Math.PI, 0]}
+        />
+      </FireworkGroup>
+    );
   },
 };
 
 export const BallRingRing: Story = {
   args: {
-    children: [
-      <BallFirework color1="#104685" color2="#042e5e" color3="#020d3d" />,
-      <RingFirework
-        color1="#630202"
-        color2="#750d0d"
-        rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
-      />,
-      <RingFirework
-        color1="#630202"
-        color2="#750d0d"
-        rotation={[Math.PI * 0.5, Math.PI * 0.8, 0]}
-      />,
-    ],
+    children: [],
+  },
+  render: () => {
+    const { FIREWORK_BLUE, FIREWORK_RED, FIREWORK_GREEN } =
+      useMaterialsContext();
+
+    return (
+      <FireworkGroup>
+        <BallFirework
+          material1={FIREWORK_BLUE}
+          material2={FIREWORK_BLUE}
+          material3={FIREWORK_BLUE}
+        />
+        ,
+        <RingFirework
+          material1={FIREWORK_RED}
+          material2={FIREWORK_RED}
+          rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
+        />
+        ,
+        <RingFirework
+          material1={FIREWORK_GREEN}
+          material2={FIREWORK_GREEN}
+          rotation={[Math.PI * 0.5, Math.PI * 0.8, 0]}
+        />
+        ,
+      </FireworkGroup>
+    );
   },
 };
 
 export const BallBall: Story = {
   args: {
-    children: [
-      <BallFirework
-        color1="#104685"
-        color2="#042e5e"
-        color3="#020d3d"
-        scale={1.5}
-      />,
-      <BallFirework
-        color1="#4a0108"
-        color2="#40080e"
-        color3="#290105"
-        rotation={[0, Math.PI, 0]}
-      />,
-    ],
+    children: [],
+  },
+  render: () => {
+    const { FIREWORK_BLUE, FIREWORK_GREEN, FIREWORK_RED } =
+      useMaterialsContext();
+
+    return (
+      <FireworkGroup>
+        <BallFirework
+          material1={FIREWORK_BLUE}
+          material2={FIREWORK_BLUE}
+          material3={FIREWORK_BLUE}
+          scale={1.5}
+        />
+        <BallFirework
+          material1={FIREWORK_RED}
+          material2={FIREWORK_RED}
+          material3={FIREWORK_RED}
+          rotation={[0, Math.PI, 0]}
+        />
+      </FireworkGroup>
+    );
   },
 };
 
 export const BallBallSeparate: Story = {
   args: {
-    children: [
-      <BallFirework
-        color1="#363b01"
-        color2="#383d06"
-        color3="#52590e"
-        scale={1.7}
-      />,
-      <BallFirework
-        color1="#4a0108"
-        color2="#40080e"
-        color3="#290105"
-        risingVelocityOffset={1.5}
-        xOffset={5}
-        zOffset={3}
-        scale={1.5}
-        rotation={[0, Math.PI, 0]}
-      />,
-      <BallFirework
-        color1="#290105"
-        color2="#042b0d"
-        color3="#072b0f"
-        risingVelocityOffset={1.9}
-        xOffset={-5}
-        zOffset={-2}
-        scale={2}
-        rotation={[0, Math.PI * 0.5, 0]}
-      />,
-    ],
+    children: [],
+  },
+  render: () => {
+    const { FIREWORK_BLUE, FIREWORK_GREEN, FIREWORK_RED } =
+      useMaterialsContext();
+    return (
+      <FireworkGroup>
+        <BallFirework
+          material1={FIREWORK_BLUE}
+          material2={FIREWORK_BLUE}
+          material3={FIREWORK_BLUE}
+          scale={1.7}
+        />
+        ,
+        <BallFirework
+          material1={FIREWORK_RED}
+          material2={FIREWORK_RED}
+          material3={FIREWORK_RED}
+          risingVelocityOffset={2.5}
+          xOffset={15}
+          zOffset={3}
+          scale={1.5}
+          rotation={[0, Math.PI, 0]}
+        />
+        ,
+        <BallFirework
+          material1={FIREWORK_GREEN}
+          material2={FIREWORK_GREEN}
+          material3={FIREWORK_GREEN}
+          risingVelocityOffset={2.9}
+          xOffset={-5}
+          zOffset={-2}
+          scale={2}
+          rotation={[0, Math.PI * 0.5, 0]}
+        />
+        ,{" "}
+      </FireworkGroup>
+    );
   },
 };
