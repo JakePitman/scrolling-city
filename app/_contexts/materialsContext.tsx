@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useReducer, useEffect } from "react";
+import { createContext, useContext } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
