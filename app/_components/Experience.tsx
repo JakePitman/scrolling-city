@@ -18,7 +18,7 @@ export const Experience = () => {
   return (
     <>
       <color args={["black"]} attach="background" />
-      <fogExp2 attach="fog" args={["#506f7d", 0.015]} />
+      <fogExp2 attach="fog" args={["#121212", 0.015]} />
       <OrbitControls />
       <ambientLight intensity={100} />
       <Background />
