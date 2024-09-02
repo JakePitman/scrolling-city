@@ -12,6 +12,7 @@ const basePointMaterialArgs = {
   blending: THREE.AdditiveBlending,
 };
 const materials = {
+  // FIREWORKS
   FIREWORK_RED: new THREE.PointsMaterial({
     color: "red",
     ...basePointMaterialArgs,
@@ -25,6 +26,7 @@ const materials = {
     ...basePointMaterialArgs,
   }),
 
+  // BUILDINGS
   CONCRETE: new THREE.MeshBasicMaterial({
     color: 0x000000,
   }),
@@ -39,6 +41,23 @@ const materials = {
   }),
   PAVEMENT: new THREE.MeshBasicMaterial({
     color: "#080808",
+  }),
+
+  // CARS
+  HEAD_LIGHT: new THREE.MeshStandardMaterial({
+    color: "#f5f781",
+    toneMapped: false,
+    emissive: "#f5f781",
+    emissiveIntensity: 200,
+  }),
+  TAIL_LIGHT: new THREE.MeshStandardMaterial({
+    color: "red",
+    toneMapped: false,
+    emissive: "red",
+    emissiveIntensity: 200,
+  }),
+  CAR_GLASS: new THREE.MeshStandardMaterial({
+    color: "#010b1c",
   }),
 } as const;
 type Materials = typeof materials;
