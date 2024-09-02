@@ -48,13 +48,14 @@ type Story = StoryObj<typeof meta>;
 export const BallRing: Story = {
   args: {
     children: [],
+    position: [0, 0, 0],
   },
   render: () => {
     const { FIREWORK_BLUE, FIREWORK_RED, FIREWORK_GREEN } =
       useMaterialsContext();
 
     return (
-      <FireworkGroup>
+      <FireworkGroup position={[0, 0, 0]}>
         <BallFirework
           material1={FIREWORK_BLUE}
           material2={FIREWORK_BLUE}
@@ -77,31 +78,29 @@ export const BallRing: Story = {
 export const BallRingRing: Story = {
   args: {
     children: [],
+    position: [0, 0, 0],
   },
   render: () => {
     const { FIREWORK_BLUE, FIREWORK_RED, FIREWORK_GREEN } =
       useMaterialsContext();
 
     return (
-      <FireworkGroup>
+      <FireworkGroup position={[0, 0, 0]}>
         <BallFirework
           material1={FIREWORK_BLUE}
           material2={FIREWORK_BLUE}
           material3={FIREWORK_BLUE}
         />
-        ,
         <RingFirework
           material1={FIREWORK_RED}
           material2={FIREWORK_RED}
           rotation={[Math.PI * 0.5, Math.PI * 0.25, 0]}
         />
-        ,
         <RingFirework
           material1={FIREWORK_GREEN}
           material2={FIREWORK_GREEN}
           rotation={[Math.PI * 0.5, Math.PI * 0.8, 0]}
         />
-        ,
       </FireworkGroup>
     );
   },
@@ -110,13 +109,13 @@ export const BallRingRing: Story = {
 export const BallBall: Story = {
   args: {
     children: [],
+    position: [0, 0, 0],
   },
   render: () => {
-    const { FIREWORK_BLUE, FIREWORK_GREEN, FIREWORK_RED } =
-      useMaterialsContext();
+    const { FIREWORK_BLUE, FIREWORK_RED } = useMaterialsContext();
 
     return (
-      <FireworkGroup>
+      <FireworkGroup position={[0, 0, 0]}>
         <BallFirework
           material1={FIREWORK_BLUE}
           material2={FIREWORK_BLUE}
@@ -137,19 +136,19 @@ export const BallBall: Story = {
 export const BallBallSeparate: Story = {
   args: {
     children: [],
+    position: [0, 0, 0],
   },
   render: () => {
     const { FIREWORK_BLUE, FIREWORK_GREEN, FIREWORK_RED } =
       useMaterialsContext();
     return (
-      <FireworkGroup>
+      <FireworkGroup position={[0, 0, 0]}>
         <BallFirework
           material1={FIREWORK_BLUE}
           material2={FIREWORK_BLUE}
           material3={FIREWORK_BLUE}
           scale={1.7}
         />
-        ,
         <BallFirework
           material1={FIREWORK_RED}
           material2={FIREWORK_RED}
@@ -160,7 +159,6 @@ export const BallBallSeparate: Story = {
           scale={1.5}
           rotation={[0, Math.PI, 0]}
         />
-        ,
         <BallFirework
           material1={FIREWORK_GREEN}
           material2={FIREWORK_GREEN}
@@ -171,7 +169,6 @@ export const BallBallSeparate: Story = {
           scale={2}
           rotation={[0, Math.PI * 0.5, 0]}
         />
-        ,{" "}
       </FireworkGroup>
     );
   },
