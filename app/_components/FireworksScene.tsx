@@ -12,7 +12,13 @@ layers.enable(1);
 export const FireworksScene = () => {
   const { gl, camera } = useThree();
   const fireworksScene = useRef<THREE.Group>(null);
-  const { FIREWORK_BLUE, FIREWORK_RED, FIREWORK_GREEN } = useMaterialsContext();
+  const {
+    FIREWORK_BLUE,
+    FIREWORK_LIGHT_BLUE,
+    FIREWORK_DARK_BLUE,
+    FIREWORK_RED,
+    FIREWORK_DARK_RED,
+  } = useMaterialsContext();
 
   useEffect(() => {
     fireworksScene?.current?.add(new THREE.AmbientLight(0xffffff));
@@ -29,12 +35,12 @@ export const FireworksScene = () => {
       <FireworkGroup>
         <BallFirework
           material1={FIREWORK_BLUE}
-          material2={FIREWORK_BLUE}
-          material3={FIREWORK_BLUE}
+          material2={FIREWORK_LIGHT_BLUE}
+          material3={FIREWORK_DARK_BLUE}
         />
         <RingFirework
           material1={FIREWORK_RED}
-          material2={FIREWORK_RED}
+          material2={FIREWORK_DARK_RED}
           rotation={[Math.PI * 0.2, Math.PI * 0.25, 0]}
         />
       </FireworkGroup>

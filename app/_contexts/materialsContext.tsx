@@ -18,15 +18,26 @@ const basePointMaterialArgs = {
 const materials = {
   // FIREWORKS
   FIREWORK_RED: new THREE.PointsMaterial({
-    color: "red",
+    color: "#8f061f",
     ...basePointMaterialArgs,
-    toneMapped: false,
+  }),
+  FIREWORK_DARK_RED: new THREE.PointsMaterial({
+    color: "#690404",
+    ...basePointMaterialArgs,
   }),
   FIREWORK_GREEN: new THREE.PointsMaterial({
     color: "green",
     ...basePointMaterialArgs,
   }),
   FIREWORK_BLUE: new THREE.PointsMaterial({
+    color: "#064a8f",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_LIGHT_BLUE: new THREE.PointsMaterial({
+    color: "#06848f",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_DARK_BLUE: new THREE.PointsMaterial({
     color: "blue",
     ...basePointMaterialArgs,
   }),
@@ -79,11 +90,20 @@ export const MaterialsContextProvider = ({ children }: Props) => {
     materials.FIREWORK_RED.opacity = Math.abs(
       Math.sin(clock.getElapsedTime() * 10)
     );
+    materials.FIREWORK_DARK_RED.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 12)
+    );
     materials.FIREWORK_GREEN.opacity = Math.abs(
       Math.sin(clock.getElapsedTime() * 13)
     );
     materials.FIREWORK_BLUE.opacity = Math.abs(
       Math.sin(clock.getElapsedTime() * 35)
+    );
+    materials.FIREWORK_LIGHT_BLUE.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 33)
+    );
+    materials.FIREWORK_DARK_BLUE.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 31)
     );
   });
 
