@@ -14,7 +14,7 @@ export const PostProcessing = () => (
   <EffectComposer>
     <DepthOfField
       focusDistance={0.0}
-      focalLength={0.7}
+      focalLength={0.3}
       bokehScale={2}
       height={480}
     />
