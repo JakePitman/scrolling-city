@@ -1,12 +1,8 @@
 "use client";
 
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { alphaTest } from "three/examples/jsm/nodes/Nodes.js";
-
-const textureLoader = new THREE.TextureLoader();
-const sprite1 = textureLoader.load("/sprites/6.png", (texture) => {});
 
 const basePointMaterialArgs = {
   transparent: true,
