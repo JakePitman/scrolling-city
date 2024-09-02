@@ -4,6 +4,11 @@ import { Meta, StoryObj } from "@storybook/react";
 import { BallFirework } from "@components/Fireworks";
 import { PostProcessing } from "@components/PostProcessing";
 import { FireworkAnimationContextProvider } from "@contexts/FireworkAnimationContext";
+import {
+  MaterialsContextProvider,
+  useMaterialsContext,
+} from "@contexts/materialsContext";
+import * as THREE from "three";
 
 const meta = {
   title: "3D/Fireworks/BallFirework",
@@ -20,29 +25,48 @@ const meta = {
       ],
     },
   },
-  args: {
-    color1: "#104685",
-    color2: "#042e5e",
-    color3: "#020d3d",
-  },
+  args: {},
   decorators: [
-    (Story) => (
-      <div className="w-[100vw] h-[100vh] border-solid border-2">
-        <Canvas camera={{ position: [0, 0, 135] }}>
-          <OrbitControls />
-          <PostProcessing />
-          <group position={[0, -15, 0]}>
-            <FireworkAnimationContextProvider>
-              <Story />
-            </FireworkAnimationContextProvider>
-          </group>
-        </Canvas>
-      </div>
-    ),
+    (Story) => {
+      return (
+        <div className="w-[100vw] h-[100vh] border-solid border-2">
+          <Canvas camera={{ position: [0, 0, 135] }}>
+            <MaterialsContextProvider>
+              <OrbitControls />
+              <PostProcessing />
+              <group position={[0, -15, 0]}>
+                <FireworkAnimationContextProvider>
+                  <Story />
+                </FireworkAnimationContextProvider>
+              </group>
+            </MaterialsContextProvider>
+          </Canvas>
+        </div>
+      );
+    },
   ],
 } satisfies Meta<typeof BallFirework>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {};
+const material = new THREE.PointsMaterial();
+export const Basic: Story = {
+  args: {
+    material1: material,
+    material2: material,
+    material3: material,
+  },
+  render: () => {
+    const { FIREWORK_BLUE, FIREWORK_GREEN, FIREWORK_RED } =
+      useMaterialsContext();
+
+    return (
+      <BallFirework
+        material1={FIREWORK_RED}
+        material2={FIREWORK_GREEN}
+        material3={FIREWORK_BLUE}
+      />
+    );
+  },
+};
