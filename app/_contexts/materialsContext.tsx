@@ -1,12 +1,16 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { alphaTest } from "three/examples/jsm/nodes/Nodes.js";
+
+const textureLoader = new THREE.TextureLoader();
+const sprite1 = textureLoader.load("/sprites/6.png", (texture) => {});
 
 const basePointMaterialArgs = {
   transparent: true,
-  size: 1,
+  size: 0.7,
   sizeAttenuation: true,
   depthWrite: false,
   blending: THREE.AdditiveBlending,
@@ -16,6 +20,7 @@ const materials = {
   FIREWORK_RED: new THREE.PointsMaterial({
     color: "red",
     ...basePointMaterialArgs,
+    toneMapped: false,
   }),
   FIREWORK_GREEN: new THREE.PointsMaterial({
     color: "green",

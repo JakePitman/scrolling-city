@@ -58,22 +58,16 @@ export const RingFirework = ({
       position={[xOffset, 0, zOffset]}
       rotation={rotation}
     >
-      <points
-        material={material1}
-        scale={0.95}
-        position={[0.02, 0, 0]}
-        rotation={[0, 0, 0]}
-      >
-        <ringGeometry args={[30, 30, 25]} />
+      <points material={material1} position={[0.02, 0, 0]} rotation={[0, 0, 0]}>
+        <ringGeometry args={[30, 30, 35]} />
       </points>
 
       <points
         material={material2}
-        scale={0.95}
         position={[0.02, 0, 0]}
         rotation={[0, 0, 0.11]}
       >
-        <ringGeometry args={[30, 30, 15]} />
+        <ringGeometry args={[30, 30, 25]} />
       </points>
     </group>
   );

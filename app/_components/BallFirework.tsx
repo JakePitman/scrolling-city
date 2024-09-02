@@ -66,7 +66,7 @@ export const BallFirework = ({
         rotation={[0.2, 0.3, 1.2]}
         material={material1}
       >
-        <sphereGeometry args={[21, 7, 7]} />
+        <sphereGeometry args={[21, 8, 8]} />
       </points>
       <points
         scale={0.95}
@@ -74,7 +74,7 @@ export const BallFirework = ({
         rotation={[1.2, 1.3, 1.2]}
         material={material2}
       >
-        <sphereGeometry args={[21, 7, 7]} />
+        <sphereGeometry args={[21, 8, 8]} />
       </points>
       <points
         scale={0.95}
@@ -82,7 +82,7 @@ export const BallFirework = ({
         rotation={[2.2, 1.3, 2.2]}
         material={material3}
       >
-        <sphereGeometry args={[21, 7, 7]} />
+        <sphereGeometry args={[21, 8, 8]} />
       </points>
     </group>
   );
