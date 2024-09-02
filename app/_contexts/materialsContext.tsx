@@ -24,6 +24,22 @@ const materials = {
     color: "blue",
     ...basePointMaterialArgs,
   }),
+
+  CONCRETE: new THREE.MeshBasicMaterial({
+    color: 0x000000,
+  }),
+  LIT_GLASS: new THREE.MeshStandardMaterial({
+    color: "white",
+    emissive: "red",
+    emissiveIntensity: 2,
+    toneMapped: false,
+  }),
+  NORMAL_GLASS: new THREE.MeshBasicMaterial({
+    color: "#000105",
+  }),
+  PAVEMENT: new THREE.MeshBasicMaterial({
+    color: "#080808",
+  }),
 } as const;
 type Materials = typeof materials;
 
