@@ -32,7 +32,7 @@ export const Car = ({ direction }: Props) => {
   return (
     <group
       ref={ref}
-      position={[xOffset, 0, zStartingPosition]}
+      position={[xOffset, 5, zStartingPosition]}
       rotation={[0, yRotation, 0]}
       scale={0.3}
     >
