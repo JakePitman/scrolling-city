@@ -12,7 +12,6 @@ export enum AnimationStage {
   DORMANT = "DORMANT",
   RISING = "RISING",
   EXPLODING = "EXPLODING",
-  FADING = "FADING",
 }
 type Action = { type: "CYCLE_ANIMATION_STAGE"; delayIsComplete: boolean };
 type FireworkAnimationContext = {
@@ -42,8 +41,6 @@ const reducer = (animationStage: AnimationStage, action: Action) => {
         case AnimationStage.RISING:
           return AnimationStage.EXPLODING;
         case AnimationStage.EXPLODING:
-          return AnimationStage.FADING;
-        case AnimationStage.FADING:
           return AnimationStage.DORMANT;
         default:
           return AnimationStage.DORMANT;
@@ -69,16 +66,18 @@ export const FireworkAnimationContextProvider = ({
       return;
     }
 
-    const interval = setInterval(
-      () => dispatch({ type: "CYCLE_ANIMATION_STAGE", delayIsComplete }),
-      3000
-    );
+    const intervalTime =
+      animationStage === AnimationStage.DORMANT ? 14000 : 3000;
+
+    const interval = setInterval(() => {
+      dispatch({ type: "CYCLE_ANIMATION_STAGE", delayIsComplete });
+    }, intervalTime);
 
     return () => {
       clearInterval(interval);
       clearInterval(delayInterval);
     };
-  }, [delay, delayIsComplete]);
+  }, [delay, delayIsComplete, animationStage]);
 
   return (
     <FireworkAnimationContext.Provider value={{ animationStage, dispatch }}>
