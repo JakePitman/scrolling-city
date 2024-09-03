@@ -35,7 +35,7 @@ const meta = {
               <OrbitControls />
               <PostProcessing />
               <group position={[0, -15, 0]}>
-                <FireworkAnimationContextProvider>
+                <FireworkAnimationContextProvider delay={0}>
                   <Story />
                 </FireworkAnimationContextProvider>
               </group>
