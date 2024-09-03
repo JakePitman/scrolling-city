@@ -32,7 +32,7 @@ export const FireworksScene = () => {
 
   return (
     <group ref={fireworksScene}>
-      <FireworkGroup position={[-10, 0, -40]}>
+      <FireworkGroup position={[-10, 0, -40]} delay={3000}>
         <BallFirework
           material1={FIREWORK_BLUE}
           material2={FIREWORK_LIGHT_BLUE}
@@ -45,7 +45,7 @@ export const FireworksScene = () => {
         />
       </FireworkGroup>
 
-      <FireworkGroup position={[60, 0, -50]}>
+      <FireworkGroup position={[60, 0, -50]} delay={0}>
         <BallFirework
           material1={FIREWORK_DARK_BLUE}
           material2={FIREWORK_DARK_BLUE}

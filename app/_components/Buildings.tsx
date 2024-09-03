@@ -52,14 +52,10 @@ export const Building1a = ({}: BuildingProps) => {
 
   return (
     <group position={[0, 0, 0]}>
-      <mesh geometry={nodes["1a"].geometry} material={CONCRETE} receiveShadow />
-      <mesh geometry={nodes["1a_1"].geometry} material={LIT_GLASS} castShadow />
+      <mesh geometry={nodes["1a"].geometry} material={CONCRETE} />
+      <mesh geometry={nodes["1a_1"].geometry} material={LIT_GLASS} />
       <mesh geometry={nodes["1a_2"].geometry} material={NORMAL_GLASS} />
-      <mesh
-        geometry={nodes["1a_3"].geometry}
-        material={PAVEMENT}
-        receiveShadow
-      />
+      <mesh geometry={nodes["1a_3"].geometry} material={PAVEMENT} />
     </group>
   );
 };

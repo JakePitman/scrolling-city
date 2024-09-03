@@ -16,8 +16,9 @@ type AnimationWrapperProps = {
 type Props = {
   children: React.ReactNode;
   position: [number, number, number];
+  delay: number;
 };
-export const FireworkGroup = ({ children, position }: Props) => {
+export const FireworkGroup = ({ children, position, delay }: Props) => {
   const [_animationStage, setAnimationStage] = useState<AnimationStage>(
     AnimationStage.DORMANT
   );
@@ -42,7 +43,7 @@ export const FireworkGroup = ({ children, position }: Props) => {
   }, []);
 
   return (
-    <FireworkAnimationContextProvider>
+    <FireworkAnimationContextProvider delay={delay}>
       <group position={position}>{children}</group>
     </FireworkAnimationContextProvider>
   );

@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useReducer, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState,
+} from "react";
 
 export enum AnimationStage {
   DORMANT = "DORMANT",
@@ -8,7 +14,7 @@ export enum AnimationStage {
   EXPLODING = "EXPLODING",
   FADING = "FADING",
 }
-type Action = { type: "CYCLE_ANIMATION_STAGE" };
+type Action = { type: "CYCLE_ANIMATION_STAGE"; delayIsComplete: boolean };
 type FireworkAnimationContext = {
   animationStage: AnimationStage;
   dispatch: React.Dispatch<Action>;
@@ -20,9 +26,14 @@ const FireworkAnimationContext = createContext<FireworkAnimationContext | null>(
 
 type Props = {
   children: React.ReactNode;
+  delay: number;
 };
 
 const reducer = (animationStage: AnimationStage, action: Action) => {
+  if (!action.delayIsComplete) {
+    return AnimationStage.DORMANT;
+  }
+
   switch (action.type) {
     case "CYCLE_ANIMATION_STAGE": {
       switch (animationStage) {
@@ -41,20 +52,33 @@ const reducer = (animationStage: AnimationStage, action: Action) => {
   }
 };
 
-export const FireworkAnimationContextProvider = ({ children }: Props) => {
+export const FireworkAnimationContextProvider = ({
+  children,
+  delay,
+}: Props) => {
   const [animationStage, dispatch] = useReducer(
     reducer,
     AnimationStage.DORMANT
   );
+  const [delayIsComplete, setDelayIsComplete] = useState(false);
 
   useEffect(() => {
+    let delayInterval: NodeJS.Timeout;
+    if (!delayIsComplete) {
+      delayInterval = setTimeout(() => setDelayIsComplete(true), delay);
+      return;
+    }
+
     const interval = setInterval(
-      () => dispatch({ type: "CYCLE_ANIMATION_STAGE" }),
+      () => dispatch({ type: "CYCLE_ANIMATION_STAGE", delayIsComplete }),
       3000
     );
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearInterval(interval);
+      clearInterval(delayInterval);
+    };
+  }, [delay, delayIsComplete]);
 
   return (
     <FireworkAnimationContext.Provider value={{ animationStage, dispatch }}>
