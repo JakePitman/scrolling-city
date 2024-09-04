@@ -25,8 +25,16 @@ const materials = {
     color: "green",
     ...basePointMaterialArgs,
   }),
+  FIREWORK_LIGHT_GREEN: new THREE.PointsMaterial({
+    color: "#2fd91c",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_DARK_GREEN: new THREE.PointsMaterial({
+    color: "#015711",
+    ...basePointMaterialArgs,
+  }),
   FIREWORK_BLUE: new THREE.PointsMaterial({
-    color: "#064a8f",
+    color: "#031636",
     ...basePointMaterialArgs,
   }),
   FIREWORK_LIGHT_BLUE: new THREE.PointsMaterial({
@@ -35,6 +43,30 @@ const materials = {
   }),
   FIREWORK_DARK_BLUE: new THREE.PointsMaterial({
     color: "blue",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_PINK: new THREE.PointsMaterial({
+    color: "#610a66",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_LIGHT_PINK: new THREE.PointsMaterial({
+    color: "#80066d",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_DARK_PINK: new THREE.PointsMaterial({
+    color: "#29021d",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_PURPLE: new THREE.PointsMaterial({
+    color: "#23063d",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_LIGHT_PURPLE: new THREE.PointsMaterial({
+    color: "#1f064f",
+    ...basePointMaterialArgs,
+  }),
+  FIREWORK_DARK_PURPLE: new THREE.PointsMaterial({
+    color: "#160229",
     ...basePointMaterialArgs,
   }),
 
@@ -90,7 +122,13 @@ export const MaterialsContextProvider = ({ children }: Props) => {
       Math.sin(clock.getElapsedTime() * 12)
     );
     materials.FIREWORK_GREEN.opacity = Math.abs(
-      Math.sin(clock.getElapsedTime() * 13)
+      Math.sin(clock.getElapsedTime() * 23)
+    );
+    materials.FIREWORK_LIGHT_GREEN.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 24)
+    );
+    materials.FIREWORK_GREEN.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 21)
     );
     materials.FIREWORK_BLUE.opacity = Math.abs(
       Math.sin(clock.getElapsedTime() * 35)
@@ -99,6 +137,24 @@ export const MaterialsContextProvider = ({ children }: Props) => {
       Math.sin(clock.getElapsedTime() * 33)
     );
     materials.FIREWORK_DARK_BLUE.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 31)
+    );
+    materials.FIREWORK_PINK.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 35)
+    );
+    materials.FIREWORK_LIGHT_PINK.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 33)
+    );
+    materials.FIREWORK_DARK_PINK.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 31)
+    );
+    materials.FIREWORK_PURPLE.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 35)
+    );
+    materials.FIREWORK_LIGHT_PURPLE.opacity = Math.abs(
+      Math.sin(clock.getElapsedTime() * 33)
+    );
+    materials.FIREWORK_DARK_PURPLE.opacity = Math.abs(
       Math.sin(clock.getElapsedTime() * 31)
     );
   });

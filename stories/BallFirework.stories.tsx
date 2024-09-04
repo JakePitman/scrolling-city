@@ -58,14 +58,14 @@ export const Basic: Story = {
     material3: material,
   },
   render: () => {
-    const { FIREWORK_BLUE, FIREWORK_GREEN, FIREWORK_RED } =
+    const { FIREWORK_GREEN, FIREWORK_LIGHT_GREEN, FIREWORK_DARK_GREEN } =
       useMaterialsContext();
 
     return (
       <BallFirework
-        material1={FIREWORK_RED}
-        material2={FIREWORK_GREEN}
-        material3={FIREWORK_BLUE}
+        material1={FIREWORK_GREEN}
+        material2={FIREWORK_LIGHT_GREEN}
+        material3={FIREWORK_DARK_GREEN}
       />
     );
   },
