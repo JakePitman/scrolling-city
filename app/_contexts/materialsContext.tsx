@@ -71,20 +71,35 @@ const materials = {
   }),
 
   // BUILDINGS
-  CONCRETE: new THREE.MeshBasicMaterial({
-    color: 0x000000,
+  CONCRETE_DARK: new THREE.MeshBasicMaterial({
+    color: "#2d2d2e",
   }),
-  LIT_GLASS: new THREE.MeshStandardMaterial({
+  CONCRETE_LIGHT: new THREE.MeshBasicMaterial({
+    color: "#4d4d4d",
+  }),
+  LIT_GLASS_WHITE: new THREE.MeshStandardMaterial({
     color: "white",
-    emissive: "red",
-    emissiveIntensity: 2,
+    emissive: "white",
+    emissiveIntensity: 30,
     toneMapped: false,
+  }),
+  LIT_GLASS_YELLOW: new THREE.MeshStandardMaterial({
+    color: "#f0fcd4",
+    toneMapped: false,
+    emissive: "#f0fcd4",
+    emissiveIntensity: 100,
+  }),
+  LIT_GLASS_BLUE: new THREE.MeshStandardMaterial({
+    color: "#c5eefc",
+    toneMapped: false,
+    emissive: "#c5eefc",
+    emissiveIntensity: 100,
   }),
   NORMAL_GLASS: new THREE.MeshBasicMaterial({
     color: "#000105",
   }),
   PAVEMENT: new THREE.MeshBasicMaterial({
-    color: "#080808",
+    color: "#3a3a3b",
   }),
 
   // CARS

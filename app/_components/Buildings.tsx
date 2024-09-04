@@ -48,12 +48,13 @@ type GLTFResult = GLTF & {
 type BuildingProps = {};
 export const Building1a = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_DARK, LIT_GLASS_BLUE, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
-      <mesh geometry={nodes["1a"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["1a_1"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["1a"].geometry} material={CONCRETE_DARK} />
+      <mesh geometry={nodes["1a_1"].geometry} material={LIT_GLASS_BLUE} />
       <mesh geometry={nodes["1a_2"].geometry} material={NORMAL_GLASS} />
       <mesh geometry={nodes["1a_3"].geometry} material={PAVEMENT} />
     </group>
@@ -61,77 +62,83 @@ export const Building1a = ({}: BuildingProps) => {
 };
 export const Building1b = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_LIGHT, LIT_GLASS_YELLOW, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["1b"].geometry} material={PAVEMENT} />
-      <mesh geometry={nodes["1b_1"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["1b_2"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["1b_1"].geometry} material={CONCRETE_LIGHT} />
+      <mesh geometry={nodes["1b_2"].geometry} material={LIT_GLASS_YELLOW} />
       <mesh geometry={nodes["1b_3"].geometry} material={NORMAL_GLASS} />
     </group>
   );
 };
 export const Building1c = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_DARK, LIT_GLASS_WHITE, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["1c"].geometry} material={PAVEMENT} />
-      <mesh geometry={nodes["1c_1"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["1c_2"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["1c_1"].geometry} material={CONCRETE_DARK} />
+      <mesh geometry={nodes["1c_2"].geometry} material={LIT_GLASS_WHITE} />
       <mesh geometry={nodes["1c_3"].geometry} material={NORMAL_GLASS} />
     </group>
   );
 };
 export const Building2a = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_DARK, LIT_GLASS_BLUE, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["2a"].geometry} material={PAVEMENT} />
-      <mesh geometry={nodes["2a_1"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["2a_2"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["2a_1"].geometry} material={CONCRETE_DARK} />
+      <mesh geometry={nodes["2a_2"].geometry} material={LIT_GLASS_BLUE} />
       <mesh geometry={nodes["2a_3"].geometry} material={NORMAL_GLASS} />
     </group>
   );
 };
 export const Building2b = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_LIGHT, LIT_GLASS_YELLOW, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["2b"].geometry} material={PAVEMENT} />
-      <mesh geometry={nodes["2b_1"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["2b_2"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["2b_1"].geometry} material={CONCRETE_LIGHT} />
+      <mesh geometry={nodes["2b_2"].geometry} material={LIT_GLASS_YELLOW} />
       <mesh geometry={nodes["2b_3"].geometry} material={NORMAL_GLASS} />
     </group>
   );
 };
 export const Building2c = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_DARK, LIT_GLASS_WHITE, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["2c"].geometry} material={PAVEMENT} />
-      <mesh geometry={nodes["2c_1"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["2c_2"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["2c_1"].geometry} material={CONCRETE_DARK} />
+      <mesh geometry={nodes["2c_2"].geometry} material={LIT_GLASS_WHITE} />
       <mesh geometry={nodes["2c_3"].geometry} material={NORMAL_GLASS} />
     </group>
   );
 };
 export const Building3a = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_DARK, LIT_GLASS_BLUE, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
-      <mesh geometry={nodes["3a"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["3a_1"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["3a"].geometry} material={CONCRETE_DARK} />
+      <mesh geometry={nodes["3a_1"].geometry} material={LIT_GLASS_BLUE} />
       <mesh geometry={nodes["3a_2"].geometry} material={NORMAL_GLASS} />
       <mesh geometry={nodes["3a_3"].geometry} material={PAVEMENT} />
     </group>
@@ -139,26 +146,28 @@ export const Building3a = ({}: BuildingProps) => {
 };
 export const Building3b = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_LIGHT, LIT_GLASS_YELLOW, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["3b"].geometry} material={PAVEMENT} />
-      <mesh geometry={nodes["3b_1"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["3b_2"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["3b_1"].geometry} material={CONCRETE_LIGHT} />
+      <mesh geometry={nodes["3b_2"].geometry} material={LIT_GLASS_YELLOW} />
       <mesh geometry={nodes["3b_3"].geometry} material={NORMAL_GLASS} />
     </group>
   );
 };
 export const Building3c = ({}: BuildingProps) => {
   const { nodes } = useGLTF("models/buildings/all_buildings.glb") as GLTFResult;
-  const { CONCRETE, LIT_GLASS, NORMAL_GLASS, PAVEMENT } = useMaterialsContext();
+  const { CONCRETE_DARK, LIT_GLASS_WHITE, NORMAL_GLASS, PAVEMENT } =
+    useMaterialsContext();
 
   return (
     <group position={[0, 0, 0]}>
       <mesh geometry={nodes["3c"].geometry} material={PAVEMENT} />
-      <mesh geometry={nodes["3c_1"].geometry} material={CONCRETE} />
-      <mesh geometry={nodes["3c_2"].geometry} material={LIT_GLASS} />
+      <mesh geometry={nodes["3c_1"].geometry} material={CONCRETE_DARK} />
+      <mesh geometry={nodes["3c_2"].geometry} material={LIT_GLASS_WHITE} />
       <mesh geometry={nodes["3c_3"].geometry} material={NORMAL_GLASS} />
     </group>
   );
