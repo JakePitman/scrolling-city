@@ -45,9 +45,6 @@ export const BallFirework = ({
         damp3(firework.current.scale, scale, 0.1 * explodeSpeed, delta, 10);
         firework.current.position.y -= delta * 0.3;
         break;
-      case AnimationStage.FADING:
-        firework.current.position.y -= delta * 0.3;
-        break;
       default:
         break;
     }
