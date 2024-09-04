@@ -18,7 +18,7 @@ export const Experience = () => {
   return (
     <>
       <color args={["black"]} attach="background" />
-      <fogExp2 attach="fog" args={["#506f7d", 0.015]} />
+      <fogExp2 attach="fog" args={["#121212", 0.015]} />
       <OrbitControls />
       <ambientLight intensity={100} />
       <Background />
@@ -32,7 +32,7 @@ export const Experience = () => {
       <group scale={0.5} position={[0, 0, 100]}>
         <group position={[0, 10, 0]}>
           {new Array(numberOfBlockRows).fill(null).map((_, i) => (
-            <BuildingBlockStrip zOffset={i * -60} />
+            <BuildingBlockStrip key={i} zOffset={i * -60} />
           ))}
         </group>
       </group>

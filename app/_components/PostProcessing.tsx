@@ -14,14 +14,13 @@ export const PostProcessing = () => (
   <EffectComposer>
     <DepthOfField
       focusDistance={0.0}
-      focalLength={0.7}
+      focalLength={0.3}
       bokehScale={2}
       height={480}
     />
     <Bloom intensity={0.01} />
-    <Noise opacity={0.15} />
-    <Scanline blendFunction={BlendFunction.OVERLAY} density={1.4} />
-    <Vignette />
+    {/* <Noise opacity={0.15} /> */}
+    <Scanline blendFunction={BlendFunction.OVERLAY} density={1.7} />
     <Glitch
       // These are correct
       // @ts-ignore

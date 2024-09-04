@@ -14,7 +14,7 @@ export const Background = () => {
         >
           <Gradient
             colorA={"black"}
-            colorB={"#adf3ff"}
+            colorB={"black"}
             axes="y"
             start={-1}
             end={20}
