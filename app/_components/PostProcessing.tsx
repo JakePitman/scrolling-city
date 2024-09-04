@@ -19,7 +19,7 @@ export const PostProcessing = () => (
       height={480}
     />
     <Bloom intensity={0.01} />
-    {/* <Noise opacity={0.15} /> */}
+    <Noise opacity={0.15} />
     <Scanline blendFunction={BlendFunction.OVERLAY} density={1.7} />
     <Glitch
       // These are correct
