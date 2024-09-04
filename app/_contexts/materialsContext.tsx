@@ -75,7 +75,7 @@ const materials = {
     color: "#2d2d2e",
   }),
   CONCRETE_LIGHT: new THREE.MeshBasicMaterial({
-    color: "#4d4d4d",
+    color: "#3d3d3d",
   }),
   LIT_GLASS_WHITE: new THREE.MeshStandardMaterial({
     color: "white",
